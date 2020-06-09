@@ -24,13 +24,14 @@ get_header();
 
 				echo get_field( 'location' ); 
 				
-				$current_date = date('j F, Y');
+				$current_date = date('l, F jS Y g:i A');
 				$event_date = get_field('date' );
-				if ( strtotime($current_date) > strtotime($event_date) ) { ?>
+				$new_date = date( 'j F, Y', strtotime($event_date));
+				if ( strtotime($current_date) < strtotime($event_date) ) { ?>
 				<h3>Upcoming On</h3>
 				<?php } ?>
 				<br/>
-				<strong> <?php echo esc_html(  get_field('date') ) .' '.  get_field('duration'); ?> </strong>
+				<strong> <?php echo esc_html(  $new_date );?> </strong>
 				<?php
 				// If comments are open or we have at least one comment, load up the comment template.
 				 if ( comments_open() || get_comments_number() ) {
