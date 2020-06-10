@@ -45,7 +45,7 @@ get_header();
 				                        if ( strtotime($current_date) < strtotime($event_date) ) { ?>
 				                            <h4> Ucoming on  </h4>
 				                        <?php }else { ?>
-				                        	<h3 ><s>Upcoming On<s></h3>
+				                        	<h3 ><s>Upcoming On</s></h3>
 				                        	<?php } ?>
 				                        
 					                        <div class="date-wrap">
