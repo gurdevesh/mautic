@@ -6451,3 +6451,91 @@ a.to-the-top > * {
 		top: 0;
 	}
 }
+
+
+.event-wrap {
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.events-details-wrap {
+    background: #fff;
+    flex-basis: 80%;
+    box-shadow: 0 5px 50px 0 rgba(0, 0, 0, 0.16);
+    padding: 0px 0px 20px 20px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.events-date {
+    text-align: right;
+    flex-basis: 20%;
+    background: #eeeeee;
+    padding: 60px 20px;
+    color: #979797;
+}
+
+.events-date h4, .events-date h3 {
+    font-size: 16px;
+    padding: 0px;
+    margin: 0px;
+}
+
+section#primary {
+    background: #ffffff;
+}
+
+.date-wrap span {
+    display: block;
+    font-size: 48px;
+    line-height: 40px;
+    font-weight: normal;
+}
+
+.date-wrap span.year {
+    padding-top: 10px;
+}
+
+.date-wrap {
+    padding-top: 7px;
+}
+
+.event-img {
+    flex-basis: 38%;
+}
+
+.events-details {
+    flex-basis: 62%;
+    padding-right: 5%;
+}
+
+.event-title {
+    padding: 10px 0px;
+}
+
+.event-title h3 {
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+}
+
+.event-title h3 a {
+    color: #000;
+    text-decoration: none;
+}
+
+.event-text {
+    color: #979797;
+    font-size: 14px;
+}
+
+.event-location {
+    font-weight: bold;
+    padding: 0px 0px 10px 0px;
+}
+
+.event-location i {
+    color: #e55165;
+}
