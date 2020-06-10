@@ -11,7 +11,6 @@
 
 get_header();
 ?>
-
     <div id="primary" class="content-area">
         <main id="main" class="site-main">
             <?php
@@ -22,7 +21,7 @@ get_header();
 
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                     <header class="entry-header">
-                        <strong> <?php echo esc_html(get_field('date')); ?> </strong>
+                        <strong> <?php echo esc_html(get_field('date')) .' '.  get_field('duration'); ?> </strong>
                         <h1 class="entry-title">
                             <?php the_title() ?>
                         </h1>
@@ -34,13 +33,13 @@ get_header();
                         <img src="<?php echo $bg[0]; ?>" class="img-responsive" />
                         <?php the_content(); ?>
                         <br/>
-
                         <br/>
                     </div><!-- .entry-content -->
                 </article><!-- #post-<?php the_ID(); ?> -->
+            <?php
+            endwhile; ?>
         </main><!-- #main -->
     </div><!-- #primary -->
 
 <?php
-            endwhile;
 get_footer();

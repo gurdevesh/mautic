@@ -37,6 +37,7 @@ function si_create_news_post_type()
             ),
             'public' => true,
             'has_archive' => true,
+            'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
             'rewrite' => array('slug' => 'news'), // my custom slug
             'taxonomies' => array('')
         )
