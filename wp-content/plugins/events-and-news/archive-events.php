@@ -62,10 +62,10 @@ get_header();
 
                     <?php
                     $event_date = get_field('date' );
-                    $date = strtotime($s);
+                    $date = strtotime($event_date);
 					$day =  date('j', $date);
-					$month =  date('F', $date);
-					$year =  date('jS Y', $date);
+					$month =  date('M', $date);
+					$year =  date('Y', $date);
                     if(!empty($event_date)){ ?>
                         <br />
                         <!-- <strong>Event Date:</strong> -->
