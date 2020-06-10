@@ -67,7 +67,7 @@ get_header();
                         <!-- <strong>Event Date:</strong> -->
                         <?php
 //                        $current_date = date('l F jS Y - g:i A');
-                        $current_date = date('l F jS Y g A T');
+                        $current_date = date('l, F jS Y g:i A T');
                         $new_date_format= date( 'j F Y', strtotime($event_date));
                         if ( strtotime($current_date) < strtotime($event_date) ) { ?>
                             <h3>Upcoming On</h3>
