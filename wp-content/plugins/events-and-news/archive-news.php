@@ -13,7 +13,7 @@ get_header();
 ?>
     <section id="primary" class="content-area">
         <main id="main" class="site-main">
-            <h2>Events</h2>
+            <h2>News</h2>
             <?php
 
             /* Start the Loop */
@@ -52,20 +52,12 @@ get_header();
                     <img src="<?php echo $bg[0]; ?>" class="img-responsive" />
                     <?php  the_excerpt(); ?>
                     <!--  <a href="--><?php //the_permalink() ?><!--">Read More</a><br />-->
-                    <?php
-                    $yearly_archive = wp_get_archives(array( 'type' => 'yearly', 'post_type' => 'news', 'echo' => 0) );
-                    print_r($yearly_archive);
-                    // $blog_url = get_bloginfo('url');
-                    // echo str_replace(($blog_url . '/date'), ($blog_url . '<your post type slug>'),$yearly_archive);
 
-                    $query = "SELECT YEAR(post_date) AS year, MONTH(post_date) AS month, count(ID) as posts FROM $wpdb->posts";
-                    $results = $wpdb->get_results( $query );
-                    print_r($results);
-                    ?>
 
                 </div><!-- .entry-content -->
                 <?php  endwhile; // End of the loop. ?>
                 <?php wpbeginner_numeric_posts_nav(); ?>
+                <?php filter_archive_year_month('news'); ?>
         </main><!-- #main -->
     </section><!-- #primary -->
 <?php

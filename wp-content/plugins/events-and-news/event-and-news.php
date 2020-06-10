@@ -257,3 +257,32 @@ function si_new_excerpt_more($more) {
     return ' <a href="'. get_permalink($post->ID) . '">' . 'Read More' . '</a>';
 }
 add_filter('excerpt_more', 'si_new_excerpt_more');
+
+function filter_archive_year_month($type){
+    global $wpdb, $wp_locale;
+    $sql_where = $wpdb->prepare( "WHERE post_type = %s AND post_status = 'publish'", $type );
+
+    $query = "SELECT YEAR(post_date) AS year, MONTH(post_date) AS month, COUNT(*) AS count FROM $wpdb->posts $sql_where GROUP BY year,month ORDER BY post_date";
+//                print_r($query);
+    $results = $wpdb->get_results( $query );
+
+    $year_array = array();
+    foreach ($results as $each){
+        $year_array[$each->year][] = $each->month;
+    }
+//                print_r($year_array);
+
+    $suffix = '?post_type='.$type;
+    foreach ($year_array as $year => $month){
+        $url = get_year_link( $year ).$suffix;
+        ?>
+        <ul>
+            <lh><a href="<?php echo $url ?>"><?php echo $year ?></a></lh>
+            <?php foreach($month as $each) {
+                $url = get_month_link( $year, $each ).$suffix;
+                ?>
+                <li> <a href="<?php echo $url; ?>"><?php echo $wp_locale->get_month( $each ); ?></a> </li>
+            <?php } ?>
+        </ul>
+    <?php }
+}
