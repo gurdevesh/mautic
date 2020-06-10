@@ -6539,3 +6539,18 @@ section#primary {
 .event-location i {
     color: #e55165;
 }
+.navigation ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    font-weight: bold;
+}
+
+.navigation ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
+.navigation ul li.active a {
+    color: #e55165;
+}
