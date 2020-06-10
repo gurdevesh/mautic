@@ -73,8 +73,13 @@ get_header();
                             <h3>Upcoming On</h3>
                         <?php } ?>
                         <br/>
-                        <strong> <?php echo esc_html(  $new_date_format );?> </strong>
-                    <?php } ?>
+                        <strong> 
+                        	<?php 
+                        		echo $event_date; 
+                        		//esc_html(  $new_date_format );
+                        	?> 
+                        </strong>
+                  	<?php } ?>
                 </div><!-- .entry-content -->
                 <?php  endwhile; // End of the loop. ?>
                 <?php wpbeginner_numeric_posts_nav(); ?>
