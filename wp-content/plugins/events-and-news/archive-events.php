@@ -12,85 +12,87 @@
 get_header();
 ?>
     <section id="primary" class="content-area">
-        <main id="main" class="site-main">
-            <h2>Events</h2>
-            <?php
+    	<div class="container">
+    		<h2>Events</h2>
+    		<div class="row"> 
+    			<div class="col-md-2"> 
+    				<div class="collapsible-dates">
+    					 <?php filter_archive_year_month('events'); ?>
+    				</div>
+    			</div>
+    			<div class="col-md-10">
+    				<?php  while ( have_posts() ) :
+			            the_post(); ?>
 
-            /* Start the Loop */
-            while ( have_posts() ) :
-            the_post(); ?>
+		            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	    				<div class="event-wrap">
+				    		<div class="events-date"> 
+				    			
+				    			 <?php
+				                    $event_date = get_field('date' );
+				                    $date = strtotime($event_date);
+									$day =  date('j', $date);
+									$month =  date('M', $date);
+									$year =  date('Y', $date);
+				                    if(!empty($event_date)){ ?>
+				                       
+				                        <!-- <strong>Event Date:</strong> -->
+				                        <?php
+				                        //$current_date = date('l F jS Y - g:i A');
+				                        $current_date = date('l, F jS Y g:i A T');
 
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <header class="entry-header">
-                    <h1 class="entry-title">
-                        <a href="<?php the_permalink() ?>"><?php the_title() ?></a>
-                    </h1>
-                    <?php
-                    // Edit post link.
-                    edit_post_link(
-                        sprintf(
-                            wp_kses(
-                            /* translators: %s: Name of current post. Only visible to screen readers. */
-                                __( 'Edit <span class="screen-reader-text">%s</span>', 'twentynineteen' ),
-                                array(
-                                    'span' => array(
-                                        'class' => array(),
-                                    ),
-                                )
-                            ),
-                            get_the_title()
-                        ),
-                        '<span class="edit-link">' . twentynineteen_get_icon_svg( 'edit', 16 ),
-                        '</span>'
-                    );
-                    ?>
-                </header>
-                <div class="entry-content">
-                    <?php
-                    $bg = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
-                    ?>
-                    <img src="<?php echo $bg[0]; ?>" class="img-responsive" />
-                    <?php  the_excerpt(); ?>
-                    <!--  <a href="--><?php //the_permalink() ?><!--">Read More</a><br />-->
+				                        $new_date_format= date( 'j F Y', strtotime($event_date));
+				                        if ( strtotime($current_date) < strtotime($event_date) ) { ?>
+				                            <h4> Ucoming on  </h4>
+				                        <?php }else { ?>
+				                        	<h3 ><s>Upcoming On<s></h3>
+				                        	<?php } ?>
+				                        
+					                        <div class="date-wrap">
+							    				<span class="day"> <?php echo $day; ?></span>
+							    				<span class="month"> <?php echo $month; ?> </span>
+							    				<span class="year"> <?php echo $year; ?> </span>
+							    			</div>
+				                        
+				                  	<?php } ?>
+				                
+				    			
+				    		</div>
+				    		<div class="events-details-wrap"> 
+				    			<div class="event-img">
+				    				 <?php
+					                    $bg = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
+					                    ?>
+					                    <img src="<?php echo $bg[0]; ?>" class="img-responsive" />
+				    			</div>
+				    			<div class="events-details">
+				    				<div class="event-title"> 
+					    				<h3> <a href="<?php the_permalink() ?>"><?php the_title() ?></a> </h3>
+					    			</div>
+					    			<div class="event-location"> 
+					    				<i class="fas fa-map-marker-alt"></i>
+					    				<?php 
+					    				$location = get_field( 'location' );
+					                    if(!empty($location)){ ?>
+					                        <?php  echo get_field( 'location' );
+					                    } ?>
+					    			</div>
+					    			<div class="event-text">
+					    				<?php  the_excerpt(); ?>
+					    			</div>
+				    			</div>
+				    			
 
-                    <?php
-                    $location = get_field( 'location' );
-                    if(!empty($location)){ ?>
-                        <strong>Location:</strong>
-                        <?php  echo get_field( 'location' );
-                    } ?>
+				    		</div>
+				    	</div>
+				    </article>
+				    <?php  endwhile; // End of the loop. ?>
+                	<?php wpbeginner_numeric_posts_nav(); ?>
+    			</div>
+    		</div>
 
-                    <?php
-                    $event_date = get_field('date' );
-                    $date = strtotime($event_date);
-					$day =  date('j', $date);
-					$month =  date('M', $date);
-					$year =  date('Y', $date);
-                    if(!empty($event_date)){ ?>
-                        <br />
-                        <!-- <strong>Event Date:</strong> -->
-                        <?php
-//                        $current_date = date('l F jS Y - g:i A');
-                        $current_date = date('l, F jS Y g:i A T');
+    	</div>
 
-                        $new_date_format= date( 'j F Y', strtotime($event_date));
-                        if ( strtotime($current_date) < strtotime($event_date) ) { ?>
-                            <h3>Upcoming On</h3>
-                        <?php } ?>
-                        <br/>
-                        <strong> 
-                        	<?php 
-                        		echo $day.' '.$month.' '.$year; 
-                        		//esc_html(  $new_date_format );
-                        	?> 
-                        </strong>
-                  	<?php } ?>
-                </div><!-- .entry-content -->
-                <?php  endwhile; // End of the loop. ?>
-                <?php wpbeginner_numeric_posts_nav(); ?>
-                <?php filter_archive_year_month('events'); ?>
-
-        </main><!-- #main -->
     </section><!-- #primary -->
 <?php
 get_footer();
