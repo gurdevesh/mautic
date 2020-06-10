@@ -65,7 +65,7 @@ get_header();
                     $date = strtotime($s);
 					$day =  date('j', $date);
 					$month =  date('F', $date);
-					$year =  date('y', $date);
+					$year =  date('jS Y', $date);
                     if(!empty($event_date)){ ?>
                         <br />
                         <!-- <strong>Event Date:</strong> -->
