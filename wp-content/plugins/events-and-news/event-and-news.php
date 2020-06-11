@@ -279,7 +279,6 @@ function filter_archive_year_month($type){
         <ul>
             <lh><a href="<?php echo $url ?>"><?php echo $year ?></a></lh>
             <?php
-            $month = asort($month);
             foreach($month as $each) {
                 $url = get_month_link( $year, $each ).$suffix;
                 ?>
