@@ -16,35 +16,23 @@ get_header();
         <main id="main" class="site-main">
             <h2>News</h2>
             <?php
+            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+            $args = array (
+                'post_type' => 'news',
+                'paged'         => $paged,
+            );
+            $loop = new WP_Query($args);
 
             /* Start the Loop */
-            while ( have_posts() ) :
-            the_post(); ?>
+            while ( $loop->have_posts() ) :
+            $loop->the_post(); ?>
 
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                 <header class="entry-header">
                     <h1 class="entry-title">
                         <a href="<?php the_permalink() ?>"><?php the_title() ?></a>
                     </h1>
-                    <?php
-                    // Edit post link.
-//                    edit_post_link(
-//                        sprintf(
-//                            wp_kses(
-//                            /* translators: %s: Name of current post. Only visible to screen readers. */
-//                                __( 'Edit <span class="screen-reader-text">%s</span>', 'twentynineteen' ),
-//                                array(
-//                                    'span' => array(
-//                                        'class' => array(),
-//                                    ),
-//                                )
-//                            ),
-//                            get_the_title()
-//                        ),
-//                        '<span class="edit-link">' . twentynineteen_get_icon_svg( 'edit', 16 ),
-//                        '</span>'
-//                    );
-                    ?>
                 </header>
                 <div class="entry-content">
                     <?php
@@ -57,8 +45,12 @@ get_header();
 
                 </div><!-- .entry-content -->
                 <?php  endwhile; // End of the loop. ?>
-                <?php wpbeginner_numeric_posts_nav(); ?>
+                <?php //wpbeginner_numeric_posts_nav();
+                echo paginate_links(array('total'=> $loop->max_num_pages))
+                ?>
                 <?php filter_archive_year_month('news'); ?>
+                <?php wp_reset_postdata(); ?>
+
         </main><!-- #main -->
     </section><!-- #primary -->
 <?php
