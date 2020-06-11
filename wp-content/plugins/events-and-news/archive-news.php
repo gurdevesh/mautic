@@ -14,7 +14,24 @@ get_header();
 ?>
     <section id="primary" class="content-area">
         <main id="main" class="site-main">
-            <h2>News</h2>
+            <h2><?php the_title() ?></h2>
+            <strong>Media Contact</strong>
+            <ul>
+                <li><?php echo get_field('media_name') ?></li>
+                <li><?php echo get_field('media_email') ?></li>
+                <li><?php echo get_field('media_contact') ?></li>
+            </ul>
+
+            <strong>Media</strong>
+            <ul>
+                <li>
+                    <strong>FutureBridge Introduction</strong>
+                <a href="<?php echo esc_html( get_field('intro') ); ?>" download>Download</a></li>
+                <li><strong>FutureBridge Logo</strong>
+                <a href="<?php echo esc_html( get_field('logo') ); ?>" download>Download</a></li>
+                <li><strong>Press Photos</strong>
+                <a href="<?php echo esc_html( get_field('press_photos') ); ?>" download>Download</a></li>
+            </ul>
             <?php
             $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 

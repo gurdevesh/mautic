@@ -13,7 +13,7 @@ get_header();
 ?>
     <section id="primary" class="content-area">
         <main id="main" class="site-main">
-            <h2>Events</h2>
+            <h2><?php the_title() ?></h2>
             <?php
             $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
