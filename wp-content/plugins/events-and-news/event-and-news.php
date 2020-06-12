@@ -209,13 +209,17 @@ function filter_archive_year_month($type){
         $url = get_year_link( $year ).$suffix;
         ?>
         <ul>
-            <lh><a href="<?php echo $url ?>"><?php echo $year ?></a></lh>
-            <?php
-            foreach($month as $each) {
-                $url = get_month_link( $year, $each ).$suffix;
-                ?>
-                <li> <a href="<?php echo $url; ?>"><?php echo $wp_locale->get_month( $each ); ?></a> </li>
-            <?php } ?>
+            <li >
+                <a class="d-year" href="<?php echo $url ?>"><?php echo $year ?></a>
+                <ul class="d-month">
+                    <?php
+                    foreach($month as $each) {
+                        $url = get_month_link( $year, $each ).$suffix;
+                        ?>
+                        <li> <a href="<?php echo $url; ?>"><?php echo $wp_locale->get_month( $each ); ?></a> </li>
+                    <?php } ?>
+                </ul>
+            </li>
         </ul>
     <?php }
 }
