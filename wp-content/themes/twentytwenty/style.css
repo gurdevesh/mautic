@@ -6475,6 +6475,7 @@ a.to-the-top > * {
     background: #eeeeee;
     padding: 45px 10px;
     color: #979797;
+    min-height: 70%;
 }
 
 .events-date h4, .events-date h3 {
