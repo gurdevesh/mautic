@@ -177,7 +177,7 @@ function wpbeginner_numeric_posts_nav()
 {
     if (is_singular())
         return;
-
+echo 'pagination';
     global $wp_query;
 
     /** Stop execution if there's only 1 page */
@@ -260,17 +260,17 @@ add_filter('excerpt_more', 'si_new_excerpt_more');
 
 function filter_archive_year_month($type){
     global $wpdb, $wp_locale;
-    $sql_where = $wpdb->prepare( "WHERE post_type = %s AND post_status = 'publish'", $type );
 
-    $query = "SELECT YEAR(post_date) AS year, MONTH(post_date) AS month, COUNT(*) AS count FROM $wpdb->posts $sql_where GROUP BY year,month ORDER BY post_date";
-//                print_r($query);
+    $sql_where = $wpdb->prepare( "WHERE p.post_type = %s AND p.post_status = 'publish' AND pm.meta_key = 'date'", $type );
+
+    $query = "SELECT YEAR(pm.meta_value) AS year, MONTH(pm.meta_value) AS month from $wpdb->posts p left join $wpdb->postmeta pm on p.ID = pm.post_id $sql_where GROUP BY year,month ORDER BY YEAR(pm.meta_value) DESC";
+
     $results = $wpdb->get_results( $query );
 
     $year_array = array();
     foreach ($results as $each){
         $year_array[$each->year][] = $each->month;
     }
-//                print_r($year_array);
 
     $suffix = '?post_type='.$type;
     foreach ($year_array as $year => $month){
@@ -278,11 +278,42 @@ function filter_archive_year_month($type){
         ?>
         <ul>
             <lh><a href="<?php echo $url ?>"><?php echo $year ?></a></lh>
-            <?php foreach($month as $each) {
+            <?php
+            foreach($month as $each) {
                 $url = get_month_link( $year, $each ).$suffix;
                 ?>
                 <li> <a href="<?php echo $url; ?>"><?php echo $wp_locale->get_month( $each ); ?></a> </li>
             <?php } ?>
         </ul>
     <?php }
+}
+
+add_action('init', function () {
+    add_rewrite_rule('news/?$','index.php?pagename=news', 'top');
+    add_rewrite_rule('events/?$','index.php?pagename=events', 'top');
+    flush_rewrite_rules();
+}, 1000);
+
+//Load template from specific page
+add_filter( 'page_template', 'wpa3396_page_template' );
+function wpa3396_page_template( $page_template ){
+    if ( get_page_template_slug() == 'archive-news.php' ) {
+        $page_template = dirname( __FILE__ ) . '/archive-news.php';
+    }
+    if ( get_page_template_slug() == 'archive-events.php' ) {
+        $page_template = dirname( __FILE__ ) . '/archive-events.php';
+    }
+    return $page_template;
+}
+
+/**
+ * Add "Custom" template to page attirbute template section.
+ */
+add_filter( 'theme_page_templates', 'wpse_288589_add_template_to_select', 10, 4 );
+function wpse_288589_add_template_to_select( $post_templates, $wp_theme, $post, $post_type ) {
+    // Add custom template named template-custom.php to select dropdown
+    $post_templates['archive-news.php'] = __('News Archive');
+    $post_templates['archive-events.php'] = __('Events Archive');
+
+    return $post_templates;
 }
