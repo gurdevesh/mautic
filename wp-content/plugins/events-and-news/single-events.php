@@ -24,8 +24,8 @@ get_header();
 
     <div id="primary" class="content-area">
         <main id="main" class="site-main">
-            <?php echo do_shortcode("[breadcrumb]"); ?>
-            <?php
+        <?php echo si_get_breadcrumbs(); ?>
+        <?php
 
             // Start the Loop.
             while (have_posts()) :
