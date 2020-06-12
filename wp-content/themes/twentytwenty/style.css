@@ -6555,3 +6555,66 @@ section#primary {
 .navigation ul li.active a {
     color: #e55165;
 }
+
+.collapsible-dates > ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul {}
+
+.collapsible-dates > ul li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.collapsible-dates > ul > li > ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0;
+}
+
+.collapsible-dates > ul > li {
+    font-size: 16px;
+}
+
+.collapsible-dates > ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
+.collapsible-dates > ul > li > ul {
+    font-size: 14px;
+    margin-left: 20px;
+    padding-left: 10px;
+    border-left: 2px solid #ccc;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.collapsible-dates > ul > li > a {
+    font-weight: bold;
+    background: #fff;
+    display: block;
+}
+
+.collapsible-dates > ul > li > ul > li {
+    margin-left: -12px;
+    padding-left: 15px;
+    border-left: 2px solid #ccc;
+    margin-bottom: 6px;
+}
+
+.collapsible-dates > ul > li > ul > li.active, .collapsible-dates > ul > li > ul > li:hover {
+    border-left: 2px solid #e55165;
+}
+
+.collapsible-dates > ul > li > ul > li.active a, .collapsible-dates > ul > li > ul > li:hover a {
+    color: #cd2653;
+    font-weight: bold;
+}
+
+.collapsible-dates > ul > li > ul > li:last-child {
+    margin-bottom: 0;
+}
