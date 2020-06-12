@@ -93,7 +93,7 @@ get_header();
                 	<?php //wpbeginner_numeric_posts_nav();
 	                	echo paginate_links(array('total'=> $loop->max_num_pages))
 	                ?>
-	                <?php filter_archive_year_month('events'); ?>
+	                
 	                <?php wp_reset_postdata(); ?>
     			</div>
     		</div>
