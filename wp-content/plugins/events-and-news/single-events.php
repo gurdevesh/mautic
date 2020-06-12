@@ -11,6 +11,17 @@
 
 get_header();
 ?>
+    <div class="container">
+        <div class="single-event-wrap">
+            <div class="date-time-wrap"> 
+                <div class="row"> 
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div id="primary" class="content-area">
         <main id="main" class="site-main">
             <?php echo do_shortcode("[breadcrumb]"); ?>
