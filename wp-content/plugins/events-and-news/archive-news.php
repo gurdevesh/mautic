@@ -74,9 +74,8 @@ get_header();
                                         <a class="twitter-timeline" href="https://twitter.com/TheFutureBridge?ref_src=twsrc%5Etfw">Tweets by TheFutureBridge</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="mautic-sub-form">
+                                <div class="col-md-8">
+                                    <div class="mautic-sub-form">
 
                                     <style type="text/css" scoped>
                                         .mauticform_wrapper { max-width: 600px; margin: 10px auto; }
@@ -131,8 +130,9 @@ get_header();
                                             </form>
                                     </div>
                                 </div>
-
+                                </div>
                             </div>
+                           
                         </div>
                     </div>
                   <div class="tab-pane fade" id="news" role="tabpanel" aria-labelledby="news-tab">
