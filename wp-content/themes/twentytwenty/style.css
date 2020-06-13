@@ -6725,5 +6725,16 @@ ul#myTab {}
 
 .col-md-8 {
     flex-basis: 66.666667%;
+    width: 66.666667%;
+    padding: 0px 15px;
+}
+.col-md-6 {
+    flex-basis: 50%;
+    width: 50%;
+    padding: 0px 15px;
+}
+.col-md-3 {
+    flex-basis: 25%;
+    width: 25%;
     padding: 0px 15px;
 }
