@@ -241,7 +241,7 @@ get_header();
             
             var t = $(this).attr('href');
             var bools = $(this).hasClass('active');
-            if(bools == "false")
+            if(bools === false)
             { //this is the start of our condition 
                 $('#myTab li a').removeClass('active');           
                 $(this).addClass('active');
