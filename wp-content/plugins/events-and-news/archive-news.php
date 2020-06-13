@@ -238,13 +238,14 @@ get_header();
     </section>
     <script type="text/javascript">         
         $(document).on('click', '#myTab li a', function(){
-            debugger;
+            
             var t = $(this).attr('href');
+            var bools = $(this).hasClass('active');
+            if(bools == "false")
+            { //this is the start of our condition 
+                $('#myTab li a').removeClass('active');           
+                $(this).addClass('active');
 
-            if($(this).hasClass('inactive')){ //this is the start of our condition 
-                $('#myTab li a').addClass('inactive');           
-                $(this).removeClass('inactive');
-                
                 $('.tab-pane').hide();
                 $(t).fadeIn('slow');
             }
