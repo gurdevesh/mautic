@@ -238,7 +238,7 @@ get_header();
     </section>
 
     <script type="text/javascript">
-        $(function() { 
+        window.document.onload = function(e){ 
             $('#myTab li a').click(function(e){
             e.preventDefault();
             var t = $(this).attr('href');
@@ -251,7 +251,7 @@ get_header();
                 $('#'+ t).fadeIn('slow');
             }
         });
-        });
+        };
         
     </script>
 
