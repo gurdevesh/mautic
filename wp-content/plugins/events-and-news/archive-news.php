@@ -246,7 +246,7 @@ get_header();
                 $(this).removeClass('inactive');
 
                 $('.tab-pane').hide();
-                $('#'+ t).fadeIn('slow');
+                $(t).fadeIn('slow');
             }
         });
     </script>
