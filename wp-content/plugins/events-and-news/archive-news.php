@@ -244,7 +244,7 @@ get_header();
             if($(this).hasClass('inactive')){ //this is the start of our condition 
                 $('#myTab li a').addClass('inactive');           
                 $(this).removeClass('inactive');
-
+                
                 $('.tab-pane').hide();
                 $(t).fadeIn('slow');
             }
