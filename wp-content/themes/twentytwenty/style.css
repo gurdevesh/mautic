@@ -6580,7 +6580,7 @@ ul {}
 }
 
 .collapsible-dates > ul li a {
-    color: #000;
+    color: #4b4b55;
     text-decoration: none;
 }
 
@@ -6591,6 +6591,7 @@ ul {}
     border-left: 2px solid #ccc;
     padding-top: 5px;
     padding-bottom: 5px;
+    margin-top: 10px;
 }
 
 .collapsible-dates > ul > li > a {
@@ -6622,7 +6623,6 @@ ul {}
 .container {
     max-width: 1180px;
     margin: 0px auto;
-    overflow: hidden;
 }
 
 .tabs-section ul#myTab {
