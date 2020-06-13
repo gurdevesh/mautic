@@ -6738,3 +6738,8 @@ ul#myTab {}
     width: 25%;
     padding: 0px 15px;
 }
+.col-md-12 {
+    flex-basis: 100%;
+    width: 100%;
+    padding: 0px 15px;
+}
