@@ -60,7 +60,7 @@
 
 		 <script type="text/javascript">	        
             $(document).on('click', '#myTab li a', function(){
-                
+                debugger;
                 var t = $(this).attr('href');
 
                 if($(this).hasClass('inactive')){ //this is the start of our condition 
