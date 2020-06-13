@@ -6618,3 +6618,112 @@ ul {}
 .collapsible-dates > ul > li > ul > li:last-child {
     margin-bottom: 0;
 }
+
+.container {
+    max-width: 1180px;
+    margin: 0px auto;
+    overflow: hidden;
+}
+
+.tabs-section ul#myTab {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    list-style: none;
+}
+
+.tabs-section ul#myTab li {
+    padding: 0;
+    margin: 0;
+}
+
+.tabs-section ul#myTab li a {
+    display: block;
+    color: #979797;
+    text-decoration: none;
+    padding: 0px 20px 10px 20px;
+    border-bottom: 2px solid #979797;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+ul#myTab {}
+
+.tabs-section ul#myTab li a:hover, .tabs-section ul#myTab li a.active {
+    color: #e55165;
+    border-color: #e55165;
+}
+
+.tab-content .tab-pane {
+    display: none;
+}
+
+.tab-content .tab-pane.show.active {
+    display: block;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px -15px 30px -15px;
+}
+
+.col-md-4 {
+    flex-basis: 33.333333%;
+    width: 33.333333%;
+    padding: 0px 15px;
+}
+
+.media-wrap h4 {
+    font-size: 18px;
+    margin: 0px;
+    padding: 38px 0px 15px 20px;
+    color: #545454;
+}
+
+.media-ul ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.media-ul ul li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.media-ul {
+    margin-left: 20px;
+    color: #545454;
+}
+
+.media-ul ul li a {
+    color: #545454;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.media-ul ul li i {
+    margin-right: 10px;
+    width: 20px;
+}
+
+.media-ul ul li a.download-link {
+    position: absolute;
+    right: 0px;
+    color: #e55165;
+}
+
+.twitter-wrap {
+    height: 500px;
+    overflow: auto;
+}
+
+.col-md-8 {
+    flex-basis: 66.666667%;
+    padding: 0px 15px;
+}
