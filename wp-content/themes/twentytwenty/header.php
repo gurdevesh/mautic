@@ -25,7 +25,24 @@
 +		
 
 		<?php wp_head(); ?>
-
+		<script type="text/javascript">
+            /** This section is only needed once per page if manually copying **/
+            if (typeof MauticSDKLoaded == 'undefined') {
+                var MauticSDKLoaded = true;
+                var head            = document.getElementsByTagName('head')[0];
+                var script          = document.createElement('script');
+                script.type         = 'text/javascript';
+                script.src          = 'http://34.73.98.235/mautic/mauticopensource/media/js/mautic-form.js';
+                script.onload       = function() {
+                    MauticSDK.onLoad();
+                };
+                head.appendChild(script);
+                var MauticDomain = 'http://34.73.98.235/mautic/mauticopensource';
+                var MauticLang   = {
+                    'submittingMessage': "Please wait..."
+                }
+            }
+        </script>
 	</head>
 
 	<body <?php body_class(); ?>>

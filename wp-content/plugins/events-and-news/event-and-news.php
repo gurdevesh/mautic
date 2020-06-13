@@ -94,6 +94,7 @@ function si_create_events_post_type()
             'public' => true,
             'has_archive' => true,
             'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
+            'taxonomies' => array('post_tag'),
             'rewrite' => array('slug' => 'events', 'with_front' => false), // my custom slug
             'taxonomies' => array('')
         )
