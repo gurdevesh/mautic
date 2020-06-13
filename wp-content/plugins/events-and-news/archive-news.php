@@ -20,7 +20,7 @@ get_header();
                     <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="false">News</a>
+                    <a class="nav-link inactive" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="false">News</a>
                   </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
