@@ -237,23 +237,7 @@ get_header();
         </div>
     </section>
 
-    <script type="text/javascript">
-        window.document.onload = function(e){ 
-            $('#myTab li a').click(function(e){
-            e.preventDefault();
-            var t = $(this).attr('href');
-
-            if($(this).hasClass('inactive')){ //this is the start of our condition 
-                $('#myTab li a').addClass('inactive');           
-                $(this).removeClass('inactive');
-
-                $('.tab-pane').hide();
-                $('#'+ t).fadeIn('slow');
-            }
-        });
-        };
-        
-    </script>
+   
 
 <?php
 get_footer();

@@ -56,5 +56,21 @@
 			</footer><!-- #site-footer -->
 
 		<?php wp_footer(); ?>
+
+
+		 <script type="text/javascript">	        
+            $(document).on('click', '#myTab li a', function(){
+                
+                var t = $(this).attr('href');
+
+                if($(this).hasClass('inactive')){ //this is the start of our condition 
+                    $('#myTab li a').addClass('inactive');           
+                    $(this).removeClass('inactive');
+
+                    $('.tab-pane').hide();
+                    $('#'+ t).fadeIn('slow');
+                }
+            });
+	    </script>
 	</body>
 </html>
