@@ -238,18 +238,21 @@ get_header();
     </section>
 
     <script type="text/javascript">
-        jQuery('#myTab li a').click(function(e){
+        $(function() { 
+            $('#myTab li a').click(function(e){
             e.preventDefault();
-            var t = jQuery(this).attr('href');
+            var t = $(this).attr('href');
 
-            if(jQuery(this).hasClass('inactive')){ //this is the start of our condition 
-                jQuery('#myTab li a').addClass('inactive');           
-                jQuery(this).removeClass('inactive');
+            if($(this).hasClass('inactive')){ //this is the start of our condition 
+                $('#myTab li a').addClass('inactive');           
+                $(this).removeClass('inactive');
 
-                jQuery('.tab-pane').hide();
-                jQuery('#'+ t).fadeIn('slow');
+                $('.tab-pane').hide();
+                $('#'+ t).fadeIn('slow');
             }
         });
+        });
+        
     </script>
 
 <?php
