@@ -193,19 +193,25 @@ get_header();
                                             </div>
                                         </div>
                                         <div class="col-md-9"> 
-                                            <a href="<?php the_permalink() ?>"><?php the_title() ?></a>
-                                            <?php  the_excerpt(); 
-
+                                            <h5 class="news-title"> 
+                                                <a href="<?php the_permalink() ?>"><?php the_title() ?></a>
+                                            </h5>
+                                            <div class="news-excerpt">
+                                            <?php  the_excerpt();
+                                            ?> 
+                                            </div>
+                                            <div class="pdf-download-link">
+                                            <?php
                                             $pdflink = get_field('pdf_download');
                                             if($pdflink != ''){
-                                                echo "<pre>";
-                                                print_r($pdflink);
-                                                echo "</pre>";
-
-                                                the_field('pdf_download');
+                                               ?>
+                                                <a href="<?php the_field('pdf_download');?>" download> 
+                                                    <i class="fas fa-download"></i> 
+                                                </a>
+                                               <?php
                                             }
                                             ?>
-
+                                            </div>
                                             
                                         </div>
                                     </div>
