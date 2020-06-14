@@ -13,11 +13,11 @@ get_header();
 ?>
 	<section id="primary" class="content-area">
     	<div class="container">
-    		<h2><?php //the_title() ?></h2>
+    		<h2><?php the_title() ?></h2>
     		<div class="row"> 
     			<div class="col-md-2"> 
     				<div class="collapsible-dates">
-    					 <?php //filter_archive_year_month('events'); ?>
+    					 <?php filter_archive_year_month('events'); ?>
     				</div>
     			</div>
     			<div class="col-md-10">
