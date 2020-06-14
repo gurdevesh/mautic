@@ -254,13 +254,6 @@ get_header();
                                                     if(!empty($event_date)){ ?>
                                                         <br />
                                                         <!-- <strong>Event Date:</strong> -->
-                                                        <?php
-                               
-                                                        $current_date = date('l, F jS Y g:i A T');
-                                                        $new_date_format= date( 'j F Y', strtotime($event_date));
-                                                        if ( strtotime($current_date) < strtotime($event_date) ) { ?>
-                                                            <h4>Upcoming On</h4>
-                                                        <?php } ?>
                                                         
                                                         <span class="day"> <?php echo $day; ?></span>
                                                         <span class="month"> <?php echo $month; ?> </span>
@@ -318,8 +311,8 @@ get_header();
             </div>
         </div>
     </section>
-    <script type="text/javascript">         
-        
+    <script type="text/javascript">
+
     </script>
    
 
