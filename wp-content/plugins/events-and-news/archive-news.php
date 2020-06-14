@@ -76,7 +76,13 @@ get_header();
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="mautic-sub-form">
-
+                                                <h4> 
+                                                    Subscribe to 
+                                                    <span class="text-black">
+                                                        FutureBridge 
+                                                    </span> 
+                                                    press releases 
+                                                </h4>
                                                 <style type="text/css" scoped>
                                                     .mauticform_wrapper { max-width: 600px; margin: 10px auto; }
                                                     .mauticform-innerform {}
