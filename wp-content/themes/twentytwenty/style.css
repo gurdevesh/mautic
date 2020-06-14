@@ -6953,3 +6953,38 @@ body.news-template-default {
 body.events-template-default, body.news-template-default{
 	background: #fff;
 }
+
+.mautic-sub-form {
+    max-width: 50%;
+    padding-left: 20px;
+}
+
+.mautic-sub-form h4 {
+    font-size: 16px;
+    color: #808080;
+    padding-left: 0;
+}
+
+.mautic-sub-form h4 .text-black {
+    color: #000;
+}
+
+.mauticform_wrapper {
+    margin: 0;
+}
+
+.mauticform-row {
+    display: flex;
+    font-size: 16px;
+}
+
+.mauticform-row .mauticform-input {font-size: 16px;flex-basis: 100%;padding: 10px;max-width: 100%;}
+
+.mauticform-row .mauticform-button {
+    font-size: 16px;
+    padding: 0;
+    flex-basis: 200px;
+    padding: 10px 20px;
+    background: #e55165;
+    text-decoration: none;
+}
