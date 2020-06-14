@@ -13,7 +13,7 @@ get_header();
                     the_post(); ?>
                 <div class="single-news-page">
                     <div class="breadcrumb-wrap">
-                        <?php echo do_shortcode("[breadcrumb]"); ?>        
+                        <?php echo do_shortcode("[si_breadcrumbs]"); ?>
                     </div>
                     <div class="news-date-wrap">
                         <div class="date">
