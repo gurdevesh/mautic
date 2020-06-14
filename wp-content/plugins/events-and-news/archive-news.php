@@ -171,9 +171,13 @@ get_header();
                                         <div class="row"> 
                                             <div class="col-md-3"> 
                                                 <?php
-                                                    $category = 
+                                                    $terms = get_the_terms( get_the_ID(), 'news_type' );
+                                                    if(!empty($terms[0])){
+                                                        $term = $terms[0]; ?>
+                                                        <div class="news-category"><?php echo $term->name; ?></div>
+                                                    <?php } 
                                                 ?>
-                                                <div class="news-category"> Press Release </div>
+                                                
                                                 <div class="news-date"> 
                                                     <?php
                                                     $event_date = get_field('date' );
