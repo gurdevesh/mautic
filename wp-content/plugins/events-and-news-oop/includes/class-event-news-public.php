@@ -148,28 +148,8 @@ class Event_News_Public {
                     $template_path = EVENTNEWS_PLUGIN_DIR . 'public/views/single-events.php';
                 }
             }
-            if (is_archive()) {
-                echo 'template_for_custom_post_type';
-
-                // checks if the file exists in the theme first,
-                // otherwise serve the file from the plugin
-                if ($theme_file = locate_template(array('archive-events.php'))) {
-                    $template_path = $theme_file;
-                } else {
-                    $template_path = EVENTNEWS_PLUGIN_DIR . 'public/views/archive-events.php';
-                }
-            }
         }
         if (get_post_type() == 'news') {
-            if (is_archive()) {
-                // checks if the file exists in the theme first,
-                // otherwise serve the file from the plugin
-                if ($theme_file = locate_template(array('archive-news.php'))) {
-                    $template_path = $theme_file;
-                } else {
-                    $template_path = EVENTNEWS_PLUGIN_DIR . 'public/views/archive-news.php';
-                }
-            }
             if (is_single()) {
                 // checks if the file exists in the theme first,
                 // otherwise serve the file from the plugin
