@@ -6942,6 +6942,11 @@ body.news-template-default {
     border-radius: 5px;
 }
 
+.single-news-desc img{
+	display: block;
+	margin-bottom: 20px;
+}
+
 .single-news-desc p strong {
     color: #000;
 }
