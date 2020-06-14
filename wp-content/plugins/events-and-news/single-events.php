@@ -32,17 +32,7 @@ get_header();
                         <i class="far fa-clock"></i>
                         <?php echo esc_html( human_time_diff( get_the_time('U'), current_time('timestamp') ) ) . ' ago'; ?>
                     </div>
-                    <div class="category">
-                        <i class="fas fa-sitemap"></i>
-                        <?php
-                            $terms = get_the_terms( get_the_ID(), 'news_type' );
-                            if(!empty($terms[0])){
-                                $term = $terms[0]; ?>
-                                <a href="<?php echo get_category_link($term->term_id) ?>" ><?php echo $term->name; ?></a>
-                            <?php }
-                            $bg = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' ); 
-                        ?>
-                    </div>
+                   
                 </div>
                 <div class="single-news-title">
                     <h2> 

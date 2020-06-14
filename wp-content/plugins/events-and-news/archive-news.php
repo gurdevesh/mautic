@@ -112,13 +112,13 @@ get_header();
                                                           <div class="mauticform-page-wrapper mauticform-page-1" data-mautic-form-page="1">
 
                                                             <div id="mauticform_subscription_email" data-validate="email" data-validation-type="email" class="mauticform-row mauticform-email mauticform-field-1 mauticform-required">
-                                                                <label id="mauticform_label_subscription_email" for="mauticform_input_subscription_email" class="mauticform-label">Email</label>
-                                                                <input id="mauticform_input_subscription_email" name="mauticform[email]" value="" placeholder="Email ID" class="mauticform-input" type="email">
+                                                                <input id="mauticform_input_subscription_email" name="mauticform[email]" value="" placeholder="Enter your e-mail ID" class="mauticform-input" type="email">
+                                                                <button type="submit" name="mauticform[submit]" id="mauticform_input_subscription_submit" value="" class="mauticform-button btn btn-default">Subscribe</button>
                                                                 <span class="mauticform-errormsg" style="display: none;">Please enter valid Email ID</span>
                                                             </div>
 
                                                             <div id="mauticform_subscription_submit" class="mauticform-row mauticform-button-wrapper mauticform-field-2">
-                                                                <button type="submit" name="mauticform[submit]" id="mauticform_input_subscription_submit" value="" class="mauticform-button btn btn-default">Submit</button>
+                                                                
                                                             </div>
                                                             </div>
                                                         </div>
