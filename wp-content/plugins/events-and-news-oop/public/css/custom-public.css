@@ -599,4 +599,13 @@ body.events-template-default, body.news-template-default{
     .news-excerpt {
         padding-bottom: 30px;
     }
+    
+    .media-wrap h4,  .media-ul {
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .mautic-sub-form {
+        padding: 0;
+    }
 }
