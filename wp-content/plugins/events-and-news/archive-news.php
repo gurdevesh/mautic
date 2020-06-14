@@ -54,18 +54,18 @@ get_header();
                                                 <ul>
                                                     <li> 
                                                         <i class="fas fa-info-circle"></i> 
-                                                        <a href="#"> Prakash Bogra </a>
+                                                        <a href="#"> FutureBridge Introduction </a>
                                                         <a class="download-link"><i class="fas fa-download"></i> </a>
 
                                                     </li>
                                                     <li> 
                                                         <i class="fas fa-bars"></i> 
-                                                        <a href="#"> Prakash Bogra </a>
+                                                        <a href="#"> FutureBridge Logo </a>
                                                         <a class="download-link"><i class="fas fa-download"></i> </a>
                                                     </li>
                                                     <li> 
                                                         <i class="far fa-images"></i> 
-                                                        <a href="#"> Prakash Bogra </a>
+                                                        <a href="#"> Press Photos </a>
                                                         <a class="download-link"><i class="fas fa-download"></i> </a>
                                                     </li>
                                                 </ul>
