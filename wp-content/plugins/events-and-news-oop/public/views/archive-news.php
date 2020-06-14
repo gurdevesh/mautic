@@ -84,22 +84,35 @@ get_header();
                                                         $intro = get_field( "intro" );
 
                                                         if( $intro ) {
-                                                            print_r($intro);
+                                                            
 
+                                                    ?>
 
-                                                        }
-                                                    ?>      
                                                     <li> 
                                                         <i class="fas fa-info-circle"></i> 
-                                                        <a href="#"> FutureBridge Introduction </a>
-                                                        <a class="download-link" href="#"><i class="fas fa-download"></i> </a>
+                                                        <a href="<?php echo $intro; ?>"> FutureBridge Introduction </a>
+                                                        <a class="download-link" href="<?php echo $intro; ?>"><i class="fas fa-download"></i> </a>
 
                                                     </li>
+                                                    <?php
+                                                    }
+                                                    ?>  
+
+                                                    <?php 
+                                                        $logo = get_field( "logo" );
+                                                        print_r($logo);
+                                                        if( $logo ) {
+                                                            
+
+                                                    ?>
                                                     <li> 
                                                         <i class="fas fa-bars"></i> 
                                                         <a href="#"> FutureBridge Logo </a>
                                                         <a class="download-link" href="#"><i class="fas fa-download"></i> </a>
                                                     </li>
+                                                    <?php
+                                                        }
+                                                    ?>
                                                     <li> 
                                                         <i class="far fa-images"></i> 
                                                         <a href="#"> Press Photos </a>
