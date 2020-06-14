@@ -6623,6 +6623,7 @@ ul {}
 .container {
     max-width: 1180px;
     margin: 0px auto;
+   	padding: 0px 15px;
 }
 
 .tabs-section ul#myTab {
@@ -6798,7 +6799,13 @@ ul#myTab {}
 }
 
 .news-category:after {content: "";display: block;width: 89%;background: #4b4b55;top: 0;position: absolute;height: 100%;z-index: -1;right: -20px;transform: skewX(-40deg);}
+.news-listed-wrap:hover .news-category {
+    background: #e55165;
+}
 
+.news-listed-wrap:hover .news-category:after {
+    background: #e55165;
+}
 .news-date {
     color: #4b4b55;
     padding: 60px 15px 15px 15px;

@@ -170,6 +170,9 @@ get_header();
                                     <div class="news-listed-wrap">
                                         <div class="row"> 
                                             <div class="col-md-3"> 
+                                                <?php
+                                                    $category = 
+                                                ?>
                                                 <div class="news-category"> Press Release </div>
                                                 <div class="news-date"> 
                                                     <?php
@@ -196,6 +199,9 @@ get_header();
                                                         
                                                     <?php } ?>  
                                                 </div>
+                                                <?php
+                                                    $tags = esc_html( get_field('source' ) );
+                                                ?>
                                                 <div class="news-tags"> 
                                                     <ul>
                                                         <li> F&N World </li>
