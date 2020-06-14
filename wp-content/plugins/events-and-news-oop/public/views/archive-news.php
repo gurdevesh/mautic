@@ -33,18 +33,46 @@ get_header();
                                             <h4> Media Contact </h4>
                                             <div class="media-ul">
                                                 <ul>
+                                                    <?php 
+                                                        $media_name = get_field( "media_name" );
+
+                                                        if( $media_name ) {
+                                                    ?>        
                                                     <li> 
                                                         <i class="fas fa-user-circle"></i> 
-                                                        <a href="#"> Prakash Bogra </a>
+                                                        <a href="#"> <?php echo $media_name; ?> </a>
                                                     </li>
+                                                    <?php 
+                                                        }
+                                                    ?>
+                                                    <?php 
+                                                        $media_email = get_field( "media_email" );
+
+                                                        if( $media_email ) {
+                                                    ?>        
                                                     <li> 
                                                         <i class="fas fa-envelope"></i> 
-                                                        <a href="mailto:prakash.dogra@futurebridge.com"> prakash.dogra@futurebridge.com </a>
+                                                        <a href="mailto:<?php echo $media_email; ?>"> 
+                                                            <?php echo $media_email; ?> 
+                                                        </a>
                                                     </li>
-                                                    <li> 
+                                                    <?php 
+                                                        }
+                                                    ?>
+                                                    <?php 
+                                                        $media_contact = get_field( "media_contact" );
+
+                                                        if( $media_contact ) {
+                                                    ?>        
+                                                     <li> 
                                                         <i class="fas fa-phone-alt"></i> 
-                                                        <a href="tel:+442036919079"> +44 203 691 9079 </a>
+                                                        <a href="tel:<?php echo $media_contact; ?> "> <?php echo $media_contact; ?> </a>
                                                     </li>
+                                                    <?php 
+                                                        }
+                                                    ?>
+                                                   
+                                                   
                                                 </ul>
                                             </div>
                                         </div>
@@ -52,21 +80,30 @@ get_header();
                                             <h4> Media Contact </h4>
                                             <div class="media-ul">
                                                 <ul>
+                                                    <?php 
+                                                        $intro = get_field( "intro" );
+
+                                                        if( $intro ) {
+                                                            print_r($intro);
+
+
+                                                        }
+                                                    ?>      
                                                     <li> 
                                                         <i class="fas fa-info-circle"></i> 
                                                         <a href="#"> FutureBridge Introduction </a>
-                                                        <a class="download-link"><i class="fas fa-download"></i> </a>
+                                                        <a class="download-link" href="#"><i class="fas fa-download"></i> </a>
 
                                                     </li>
                                                     <li> 
                                                         <i class="fas fa-bars"></i> 
                                                         <a href="#"> FutureBridge Logo </a>
-                                                        <a class="download-link"><i class="fas fa-download"></i> </a>
+                                                        <a class="download-link" href="#"><i class="fas fa-download"></i> </a>
                                                     </li>
                                                     <li> 
                                                         <i class="far fa-images"></i> 
                                                         <a href="#"> Press Photos </a>
-                                                        <a class="download-link"><i class="fas fa-download"></i> </a>
+                                                        <a class="download-link" href="#"><i class="fas fa-download"></i> </a>
                                                     </li>
                                                 </ul>
                                             </div>

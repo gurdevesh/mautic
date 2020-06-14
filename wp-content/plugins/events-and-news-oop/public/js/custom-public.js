@@ -1,5 +1,5 @@
-$(document).on('click', '#myTab li a', function(){
-            
+$(document).on('click', '#myTab li a', function(e){
+    e.preventDefault();
     var t = $(this).attr('href');
     var bools = $(this).hasClass('active');
     if(bools === false)
