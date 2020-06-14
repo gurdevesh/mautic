@@ -205,11 +205,18 @@ get_header();
                                                 </div>
                                                 <?php
                                                     $tags = esc_html( get_field('source' ) );
+                                                    //$myString = "9,admin@example.com,8";
+                                                    $tagsLists = explode(',', $tags);
+                                                    //print_r($tagsList);
+
                                                 ?>
                                                 <div class="news-tags"> 
                                                     <ul>
-                                                        <li> F&N World </li>
-                                                        <li> Food & Nutrition </li>
+                                                        <?php
+                                                            foreach($tagsList as $tagsLists){
+                                                                echo '<li>'.$tagsList.'</li>';  
+                                                            }
+                                                        ?>
                                                     </ul>
                                                 </div>
                                             </div>
