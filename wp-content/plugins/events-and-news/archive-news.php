@@ -207,13 +207,13 @@ get_header();
                                                     $tags = get_field('source' );
                                                     //$myString = "9,admin@example.com,8";
                                                     $tagsLists = explode(',', $tags);
-                                                    print_r($tagsLists);
+                                                    //print_r($tagsList);
 
                                                 ?>
                                                 <div class="news-tags"> 
                                                     <ul>
                                                         <?php
-                                                            foreach($tagsList as $tagsLists){
+                                                            foreach($tagsLists as $tagsList){
                                                                 echo '<li>'.$tagsList.'</li>';  
                                                             }
                                                         ?>
