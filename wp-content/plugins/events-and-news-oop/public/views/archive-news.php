@@ -303,6 +303,9 @@ get_header();
                                         </div>
                                     </div>
                                     <?php  endwhile; // End of the loop. ?>
+                                    <?php
+                                    echo paginate_links(array('total'=> $loop->max_num_pages))
+                                    ?>
                                 </div>
                             </div>
                       </div>
