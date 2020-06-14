@@ -90,8 +90,8 @@ get_header();
 
                                                     <li> 
                                                         <i class="fas fa-info-circle"></i> 
-                                                        <a href="<?php echo $intro; ?>"> FutureBridge Introduction </a>
-                                                        <a class="download-link" href="<?php echo $intro; ?>"><i class="fas fa-download"></i> </a>
+                                                        <a href="<?php echo $intro; ?>" download> FutureBridge Introduction </a>
+                                                        <a class="download-link"  href="<?php echo $intro; ?>" download><i class="fas fa-download"></i> </a>
 
                                                     </li>
                                                     <?php
@@ -100,24 +100,33 @@ get_header();
 
                                                     <?php 
                                                         $logo = get_field( "logo" );
-                                                        print_r($logo);
+
                                                         if( $logo ) {
                                                             
 
                                                     ?>
                                                     <li> 
                                                         <i class="fas fa-bars"></i> 
-                                                        <a href="#"> FutureBridge Logo </a>
-                                                        <a class="download-link" href="#"><i class="fas fa-download"></i> </a>
+                                                        <a href="<?php echo $logo; ?>" download> FutureBridge Logo </a>
+                                                        <a class="download-link" href="<?php echo $logo; ?>" download><i class="fas fa-download"></i> </a>
                                                     </li>
                                                     <?php
                                                         }
                                                     ?>
+                                                    <?php 
+                                                        $press_photos = get_field( "press_photos" );
+
+                                                        if( $press_photos ) {        
+
+                                                    ?>
                                                     <li> 
                                                         <i class="far fa-images"></i> 
-                                                        <a href="#"> Press Photos </a>
-                                                        <a class="download-link" href="#"><i class="fas fa-download"></i> </a>
+                                                        <a href="<?php echo $press_photos; ?>" download> Press Photos </a>
+                                                        <a class="download-link" href="<?php echo $press_photos; ?>" download><i class="fas fa-download"></i> </a>
                                                     </li>
+                                                    <?php
+                                                    }
+                                                ?>
                                                 </ul>
                                             </div>
                                         </div>
