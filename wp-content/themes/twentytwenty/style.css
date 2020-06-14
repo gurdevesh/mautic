@@ -6950,3 +6950,6 @@ body.news-template-default {
 .single-news-desc p strong {
     color: #000;
 }
+body.events-template-default, body.news-template-default{
+	background: #fff;
+}
