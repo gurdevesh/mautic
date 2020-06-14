@@ -226,7 +226,7 @@ class Event_News_Public {
         return ' <a href="'. get_permalink($post->ID) . '">' . 'Read More' . '</a>';
     }
 
-    function si_get_breadcrumbs()
+    function show_breadcrumbs()
     {
         // Set variables for later use
         $home_link        = home_url('/');
