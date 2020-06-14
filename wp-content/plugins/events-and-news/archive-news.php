@@ -204,10 +204,10 @@ get_header();
                                                     <?php } ?>  
                                                 </div>
                                                 <?php
-                                                    $tags = esc_html( get_field('source' ) );
+                                                    $tags = get_field('source' );
                                                     //$myString = "9,admin@example.com,8";
                                                     $tagsLists = explode(',', $tags);
-                                                    //print_r($tagsList);
+                                                    print_r($tagsList);
 
                                                 ?>
                                                 <div class="news-tags"> 
