@@ -502,7 +502,7 @@ body.events-template-default, body.news-template-default{
 }
 
 .mautic-sub-form {
-    max-width: 50%;
+    max-width: 400px;
     padding-left: 20px;
 }
 
@@ -534,4 +534,21 @@ body.events-template-default, body.news-template-default{
     padding: 10px 20px;
     background: #e55165;
     text-decoration: none;
+}
+
+@media (max-width: 768px){
+    .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+     max-width: 100%; 
+     flex-basis: 100%; 
+     padding-bottom: 20px; 
+}
+.mauticform-row .mauticform-input{
+    flex-basis: 100%;
+}
+.mauticform-row .mauticform-input {
+    flex-basis: 100%;
+    margin-bottom: 20px;
+}
+
+.mauticform-row {flex-wrap: wrap;}
 }
