@@ -31,6 +31,7 @@ class Event_News {
 
         $this->load_dependencies();
         $this->define_public_hooks();
+
     }
 
     /**
@@ -63,11 +64,10 @@ class Event_News {
 //        add_filter('template_include', array( $plugin_public, 'template_for_custom_post_type'), 999 );
         add_filter('theme_page_templates', array( $plugin_public, 'name_the_page_template'), 10, 4 );
         add_filter('page_template', array( $plugin_public, 'page_template_from_plugin') );
-
-
-
         add_filter('the_excerpt', array( $plugin_public, 'excerpt_with_read_more') );
         add_filter('excerpt_more', array( $plugin_public, 'modify_read_more') );
+
+        add_shortcode('si_breadcrumbs', array( $plugin_public, 'show_breadcrumbs') );
     }
 
 }

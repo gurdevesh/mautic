@@ -25,12 +25,12 @@ get_header();
 
     <div id="primary" class="content-area">
         <main id="main" class="site-main">
-        <?php //echo si_get_breadcrumbs(); ?>
+            <?php echo do_shortcode("[si_breadcrumbs]"); ?>
         <?php
 
             // Start the Loop.
             while (have_posts()) :
-                the_post();  echo 'pooja1sss';?>
+                the_post(); ?>
 
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                     <header class="entry-header">
