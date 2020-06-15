@@ -13,7 +13,7 @@ get_header();
 ?>
 	<section id="primary" class="content-area">
     	<div class="container">
-    		<h2><?php the_title() ?></h2>
+    		<h2>Events</h2>
     		<div class="row"> 
     			<div class="col-md-2"> 
     				<div class="collapsible-dates">
