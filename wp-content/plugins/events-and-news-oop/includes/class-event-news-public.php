@@ -438,7 +438,9 @@ class Event_News_Public {
         return $breadcrumb_output_link;
     }
 
-    function filter_archive_year_month($type){
+    function filter_archive_year_month($attr){
+        $type = $attr['type'];
+
         global $wpdb, $wp_locale;
 
         $sql_where = $wpdb->prepare( "WHERE p.post_type = %s AND p.post_status = 'publish' AND pm.meta_key = 'date'", $type );
@@ -455,21 +457,21 @@ class Event_News_Public {
         $suffix = '?post_type='.$type;
         foreach ($year_array as $year => $month){
             $url = get_year_link( $year ).$suffix;
-            ?>
-            <ul>
-                <li >
-                    <a class="d-year" href="<?php echo $url ?>"><?php echo $year ?></a>
-                    <ul class="d-month">
-                        <?php
+
+            $filter_html = '<ul>'
+                    .'<li>'
+                        .'<a class="d-year" href="'.$url.'">'.$year.'</a>'
+                        .'<ul class="d-month">';
                         foreach($month as $each) {
                             $url = get_month_link( $year, $each ).$suffix;
-                            ?>
-                            <li> <a href="<?php echo $url; ?>"><?php echo $wp_locale->get_month( $each ); ?></a> </li>
-                        <?php } ?>
-                    </ul>
-                </li>
-            </ul>
-        <?php }
+                            $filter_html .= '<li> <a href="'.$url.'">'.$wp_locale->get_month( $each ).'</a> </li>';
+                         }
+            $filter_html .= '</ul>'
+                .'</li>'
+            .'</ul>';
+         }
+
+        return $filter_html;
     }
 
 }

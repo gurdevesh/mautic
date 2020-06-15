@@ -17,7 +17,7 @@ get_header();
     		<div class="row"> 
     			<div class="col-md-2"> 
     				<div class="collapsible-dates">
-    					 <?php //filter_archive_year_month('events'); ?>
+                        <?php echo do_shortcode("[si_archive_filter type='events']"); ?>
     				</div>
     			</div>
     			<div class="col-md-10">

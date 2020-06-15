@@ -68,6 +68,7 @@ class Event_News {
         add_filter('excerpt_more', array( $plugin_public, 'modify_read_more') );
 
         add_shortcode('si_breadcrumbs', array( $plugin_public, 'show_breadcrumbs') );
+        add_shortcode('si_archive_filter', array( $plugin_public, 'filter_archive_year_month') );
     }
 
 }
