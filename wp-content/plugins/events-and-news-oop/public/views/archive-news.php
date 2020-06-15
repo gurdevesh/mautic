@@ -215,7 +215,7 @@ get_header();
                       <div class="row"> 
                             <div class="col-md-2"> 
                                 <div class="collapsible-dates">
-                                    <?php echo do_shortcode("[si_archive_filter type='events']"); ?>
+                                    <?php echo do_shortcode("[si_archive_filter type='news']"); ?>
                                 </div>
                             </div>
                             <div class="col-md-10">
