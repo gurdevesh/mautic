@@ -11,20 +11,59 @@
 
 
 get_header();
+
+
+if(is_month()){
+    $month_str = get_query_var('custom_month');
+    $year_str = get_query_var('custom_year');
+    if( !empty($month_str) ){
+        $month = new DateTime($year_str.'/'.$month_str.'/01');
+        $meta_query = array(
+            'key' => 'date',
+            'value' => array($month->format('Y-m-d').' 00:00:00',$month->format('Y-m-t'). '23:59:59'),
+            'compare' => 'BETWEEN',
+        );
+    }
+}
+
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+$args = array (
+    'post_type' => 'news',
+    'paged'     => $paged,
+    'meta_query' => array($meta_query)
+);
+$loop = new WP_Query($args);
+
+if($paged == 1){
+    $overview  = 'show active';
+    $news  = 'inactive';
+}
+else{
+    $overview  = 'inactive';
+    $news  = 'show active';
+}
+
+$page_id = '';
+$page = get_page_by_path( "news", OBJECT, array( 'page' ) );
+if(!empty($page)){
+    $page_id = $page->ID;
+}
+
 ?>
     <section id="primary" class="content-area">
         <div class="container">
             <div class="tabs-section">
                 <ul class="nav nav-tabs tabs" id="myTab" role="tablist">
                   <li class="nav-item">
-                    <a class="nav-link active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
+                    <a class="nav-link <?php echo $overview ?>" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link inactive" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="false">News</a>
+                    <a class="nav-link <?php echo $news ?>" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="false">News</a>
                   </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active overview-tab" id="overview"  role="tabpanel" aria-labelledby="overview-tab">
+                    <div class="tab-pane fade <?php echo $overview ?> overview-tab" id="overview"  role="tabpanel" aria-labelledby="overview-tab">
                         <div class="media-wrap"> 
                             <div class="row">
                                 <div class="col-md-8">
@@ -34,7 +73,7 @@ get_header();
                                             <div class="media-ul">
                                                 <ul>
                                                     <?php 
-                                                        $media_name = get_field( "media_name" );
+                                                        $media_name = get_field( "media_name", $page_id );
 
                                                         if( $media_name ) {
                                                     ?>        
@@ -46,7 +85,7 @@ get_header();
                                                         }
                                                     ?>
                                                     <?php 
-                                                        $media_email = get_field( "media_email" );
+                                                        $media_email = get_field( "media_email", $page_id );
 
                                                         if( $media_email ) {
                                                     ?>        
@@ -60,7 +99,7 @@ get_header();
                                                         }
                                                     ?>
                                                     <?php 
-                                                        $media_contact = get_field( "media_contact" );
+                                                        $media_contact = get_field( "media_contact", $page_id );
 
                                                         if( $media_contact ) {
                                                     ?>        
@@ -81,7 +120,7 @@ get_header();
                                             <div class="media-ul">
                                                 <ul>
                                                     <?php 
-                                                        $intro = get_field( "intro" );
+                                                        $intro = get_field( "intro", $page_id );
 
                                                         if( $intro ) {
                                                             
@@ -99,7 +138,7 @@ get_header();
                                                     ?>  
 
                                                     <?php 
-                                                        $logo = get_field( "logo" );
+                                                        $logo = get_field( "logo", $page_id );
 
                                                         if( $logo ) {
                                                             
@@ -114,7 +153,7 @@ get_header();
                                                         }
                                                     ?>
                                                     <?php 
-                                                        $press_photos = get_field( "press_photos" );
+                                                        $press_photos = get_field( "press_photos", $page_id );
 
                                                         if( $press_photos ) {        
 
@@ -211,7 +250,7 @@ get_header();
                            
                         </div>
                     </div>
-                  <div class="tab-pane fade" id="news" role="tabpanel" aria-labelledby="news-tab">
+                  <div class="tab-pane fade <?php echo $news ?>" id="news" role="tabpanel" aria-labelledby="news-tab">
                       <div class="row"> 
                             <div class="col-md-2"> 
                                 <div class="collapsible-dates">
@@ -221,13 +260,7 @@ get_header();
                             <div class="col-md-10">
                                 <div class="news-listing">
                                      <?php
-                                        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-                                        $args = array (
-                                            'post_type' => 'news',
-                                            'paged'     => $paged,
-                                        );
-                                        $loop = new WP_Query($args);
 
                                         /* Start the Loop */
                                         while ( $loop->have_posts() ) :

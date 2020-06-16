@@ -609,3 +609,11 @@ body.events-template-default, body.news-template-default{
         padding: 0;
     }
 }
+
+ul.filter-inactive .d-month {
+     display: none;
+ }
+
+ul.filter-active .d-month {
+    display: block;
+}

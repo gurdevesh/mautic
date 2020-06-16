@@ -453,25 +453,61 @@ class Event_News_Public {
         foreach ($results as $each){
             $year_array[$each->year][] = $each->month;
         }
-
+//        echo '<pre>';print_r($year_array);exit;
         $suffix = '?post_type='.$type;
+        $filter_html = ''; $i= 0;
         foreach ($year_array as $year => $month){
+            $active = 'filter-inactive';
+            if($i == 0){
+                $active = 'filter-active';
+            }
+
             $url = get_year_link( $year ).$suffix;
 
-            $filter_html = '<ul>'
+            $filter_html .= '<ul class="filter '.$active.'">'
                     .'<li>'
-                        .'<a class="d-year" href="'.$url.'">'.$year.'</a>'
+                        .'<label class="d-year">'.$year.'</label>'
                         .'<ul class="d-month">';
-                        foreach($month as $each) {
-                            $url = get_month_link( $year, $each ).$suffix;
-                            $filter_html .= '<li> <a href="'.$url.'">'.$wp_locale->get_month( $each ).'</a> </li>';
+                        foreach($month as $each_month) {
+                            $url = get_month_link( $year, $each_month ).$suffix;
+                            $filter_html .= '<li> <a href="'.$url.'">'.$wp_locale->get_month( $each_month ).'</a> </li>';
                          }
             $filter_html .= '</ul>'
                 .'</li>'
             .'</ul>';
+            $i++;
          }
 
         return $filter_html;
+    }
+
+    function pre_get_posts($query){
+        //Only alter query if custom variable is set.
+        $month_str = $query->get('monthnum');
+        $year_str = $query->get('year');
+
+        if( !empty($month_str) ){
+
+            $meta_query = $query->get('meta_query');
+            if( empty($meta_query) )
+                $meta_query = array();
+
+            //Convert 2012/05 into a datetime object get the first and last days of that month in yyyy/mm/dd format
+            $month = new DateTime($year_str.'/'.$month_str.'/01');
+            //Get posts with date between the first and last of given month
+            $meta_query[] = array(
+                'key' => 'date',
+                'value' => array($month->format('Y-m-d').' 00:00:00',$month->format('Y-m-t'). ' 23:59:59'),
+                'compare' => 'BETWEEN',
+            );
+            $query->set('meta_query',$meta_query);
+            $query->set('year','');
+            $query->set('monthnum','');
+            $query->set('custom_month',$month_str);
+            $query->set('custom_year',$year_str);
+//            echo '<pre>';print_r($query);
+
+        }
     }
 
 }
