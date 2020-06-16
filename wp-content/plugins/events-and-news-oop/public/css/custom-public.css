@@ -84,7 +84,7 @@ section#primary {
     padding: 0px 0px 10px 0px;
 }
 
-.event-location i {
+.event-location i, .mobile-date i {
     color: #e55165;
 }
 .navigation ul {
@@ -608,6 +608,42 @@ body.events-template-default, body.news-template-default{
     .mautic-sub-form {
         padding: 0;
     }
+    .events-date {
+        display: none;
+    }
+
+    .events-details-wrap {
+        flex-basis: 100%;
+        box-shadow: 0px 2px 10px 0 rgba(0, 0, 0, 0.16);
+        padding: 10px;
+    }
+
+    .event-img {
+        display: none;
+    }
+
+    .events-details {
+        flex-basis: 100%;
+    }
+
+    .event-title {
+        padding-top: 0px;
+        padding-bottom: 10px;
+    }
+
+    .mobile-date {
+        padding-bottom: 15px;
+    }
+
+    .event-location strong {display: none;}
+
+    .event-location {
+        font-weight: normal;
+    }
+
+    .event-text {
+        padding: 0 5px;
+    }
 }
 
 ul.filter-inactive .d-month {
@@ -616,4 +652,4 @@ ul.filter-inactive .d-month {
 
 ul.filter-active .d-month {
     display: block;
-}
+

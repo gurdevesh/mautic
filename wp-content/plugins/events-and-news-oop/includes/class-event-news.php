@@ -71,6 +71,7 @@ class Event_News {
 
         add_shortcode('si_breadcrumbs', array( $plugin_public, 'show_breadcrumbs') );
         add_shortcode('si_archive_filter', array( $plugin_public, 'filter_archive_year_month') );
+        add_shortcode('si_archive_filter_mobile', array( $plugin_public, 'filter_archive_year_month') );
     }
 
 }
