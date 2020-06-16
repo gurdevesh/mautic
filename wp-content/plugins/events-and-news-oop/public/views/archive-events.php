@@ -14,6 +14,7 @@ get_header();
 	<section id="primary" class="content-area">
     	<div class="container">
     		<h2>Events</h2>
+    		<?php filter_archive_year_month('events'); ?>
     		<div class="row"> 
     			<div class="col-md-2"> 
     				<div class="collapsible-dates">
@@ -47,7 +48,7 @@ get_header();
 			                        <br />
 			                        <!-- <strong>Event Date:</strong> -->
 			                        <?php
-			//                        $current_date = date('l F jS Y - g:i A');
+										//$current_date = date('l F jS Y - g:i A');
 			                        $current_date = date('l, F jS Y g:i A T');
 			                        $new_date_format= date( 'j F Y', strtotime($event_date));
 			                        if ( strtotime($current_date) < strtotime($event_date) ) { ?>
