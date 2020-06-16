@@ -1,7 +1,7 @@
 $(document).on('click', '#myTab li a', function(e){
     e.preventDefault();
     var t = $(this).attr('href');
-    debugger;
+    //debugger;
     var bools = $(this).hasClass('active');
     setCookie('active-tab',t, 1);
     if(bools === false)
@@ -15,11 +15,11 @@ $(document).on('click', '#myTab li a', function(e){
 });
 $(document).ready(function(){
     var getActiveTab = getCookie('active-tab');
-    debugger;
+   // debugger;
     if(getActiveTab != '' && getActiveTab != undefined){
         $('#myTab li a').removeClass('active');
-        $('#myTab li a[href="' + getActiveTab + '"]');
-        $(this).addClass('active');
+        $('#myTab li a[href="' + getActiveTab + '"]').addClass('active');
+        //$(this).addClass('active');
         $('.tab-pane').hide();
         $(getActiveTab).fadeIn('slow');
     }
