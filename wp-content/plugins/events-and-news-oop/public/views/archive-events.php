@@ -14,7 +14,7 @@ get_header();
 	<section id="primary" class="content-area">
     	<div class="container">
     		<h2>Events</h2>
-    		<?php filter_archive_year_month('events'); ?>
+    		<?php echo do_shortcode("[si_archive_filter_mobile type='events']"); ?>
     		<div class="row"> 
     			<div class="col-md-2"> 
     				<div class="collapsible-dates">
