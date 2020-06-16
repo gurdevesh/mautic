@@ -14,6 +14,7 @@ get_header();
 	<section id="primary" class="content-area">
     	<div class="container">
     		<h2>Events</h2>
+    		<?php echo do_shortcode("[si_archive_filter_mobile type='events']"); ?>
     		<div class="row"> 
     			<div class="col-md-2"> 
     				<div class="collapsible-dates">
@@ -47,7 +48,7 @@ get_header();
 			                        <br />
 			                        <!-- <strong>Event Date:</strong> -->
 			                        <?php
-			//                        $current_date = date('l F jS Y - g:i A');
+										//$current_date = date('l F jS Y - g:i A');
 			                        $current_date = date('l, F jS Y g:i A T');
 			                        $new_date_format= date( 'j F Y', strtotime($event_date));
 			                        if ( strtotime($current_date) < strtotime($event_date) ) { ?>
@@ -71,6 +72,13 @@ get_header();
 				    				<div class="event-title"> 
 					    				<h3> <a href="<?php the_permalink() ?>"><?php the_title() ?></a> </h3>
 					    			</div>
+					    			<div class="mobile-date">
+					    				<i class="far fa-calendar-minus"></i>
+					    				<span class="day"> <?php echo $day; ?></span>
+					    				<span class="month"> <?php echo $month; ?> </span>
+					    				<span class="year"> <?php echo $year; ?> </span>
+						    			
+					    			</div>
 					    			<div class="event-location"> 
 					    				<i class="fas fa-map-marker-alt"></i>
 					    				<?php
@@ -80,6 +88,7 @@ get_header();
 					                        <?php  echo get_field( 'location' );
 					                    } ?>
 					    			</div>
+					    				
 					    			<div class="event-text">
 					    				<?php  the_excerpt(); ?>
 					    			</div>

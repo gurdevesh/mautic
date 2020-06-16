@@ -460,11 +460,11 @@ class Event_News_Public {
 
             $filter_html = '<ul>'
                     .'<li>'
-                        .'<a class="d-year" href="'.$url.'">'.$year.'</a>'
+                        .'<a class="d-year" data-year-name="'.$year.'" href="'.$url.'">'.$year.'</a>'
                         .'<ul class="d-month">';
                         foreach($month as $each) {
                             $url = get_month_link( $year, $each ).$suffix;
-                            $filter_html .= '<li> <a href="'.$url.'">'.$wp_locale->get_month( $each ).'</a> </li>';
+                            $filter_html .= '<li> <a data-year-name="'.$each.'" href="'.$url.'">'.$wp_locale->get_month( $each ).'</a> </li>';
                          }
             $filter_html .= '</ul>'
                 .'</li>'
