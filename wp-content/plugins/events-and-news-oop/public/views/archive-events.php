@@ -14,7 +14,20 @@ get_header();
 	<section id="primary" class="content-area">
     	<div class="container">
     		<h2>Events</h2>
-    		<?php echo do_shortcode("[si_archive_filter_mobile type='events']"); ?>
+            <?php
+            if(is_month()){
+                $month_str = get_query_var('custom_month');
+                $year_str = get_query_var('custom_year');
+                if( !empty($month_str) ){
+                    $month = new DateTime($year_str.'/'.$month_str.'/01');
+                    $meta_query = array(
+                        'key' => 'date',
+                        'value' => array($month->format('Y-m-d').' 00:00:00',$month->format('Y-m-t'). '23:59:59'),
+                        'compare' => 'BETWEEN',
+                    );
+                }
+            }
+            ?>
     		<div class="row"> 
     			<div class="col-md-2"> 
     				<div class="collapsible-dates">
@@ -28,6 +41,7 @@ get_header();
 		            $args = array (
 		                'post_type' => 'events',
 		                'paged'         => $paged,
+                        'meta_query' => array($meta_query)
 		            );
 		            $loop = new WP_Query($args);
 		            /* Start the Loop */

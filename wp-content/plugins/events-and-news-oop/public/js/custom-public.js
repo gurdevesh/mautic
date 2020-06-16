@@ -13,6 +13,7 @@ $(document).on('click', '#myTab li a', function(e){
         $(t).fadeIn('slow');
     }
 });
+
 $(document).ready(function(){
     var getActiveTab = getCookie('active-tab');
    // debugger;
@@ -51,3 +52,12 @@ function getCookie(name) {
 function eraseCookie(name) {   
     document.cookie = name+'=; Max-Age=-99999999;';  
 }
+
+$(document).on('click', '.d-year', function(){
+    if($(this).parents('ul.filter').hasClass('filter-inactive')){
+        $(this).parents('ul.filter').removeClass('filter-inactive').addClass('filter-active');
+    }
+    else{
+        $(this).parents('ul.filter').removeClass('filter-active').addClass('filter-inactive');
+    }
+});
