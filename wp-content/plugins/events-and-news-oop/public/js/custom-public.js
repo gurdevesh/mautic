@@ -16,7 +16,7 @@ $(document).on('click', '#myTab li a', function(e){
 $(document).ready(function(){
     var getActiveTab = getCookie('active-tab');
     debugger;
-    if(getActiveTab != '' getActiveTab != undefined){
+    if(getActiveTab != '' && getActiveTab != undefined){
         $('#myTab li a').removeClass('active');
         $('#myTab li a[href="' + getActiveTab + '"]');
         $(this).addClass('active');
