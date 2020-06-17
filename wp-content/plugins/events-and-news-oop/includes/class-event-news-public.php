@@ -441,6 +441,9 @@ class Event_News_Public {
     function filter_archive_year_month($attr){
         $type = $attr['type'];
 
+        $month_str = get_query_var('custom_month');
+        $year_str = get_query_var('custom_year');
+
         global $wpdb, $wp_locale;
 
         $sql_where = $wpdb->prepare( "WHERE p.post_type = %s AND p.post_status = 'publish' AND pm.meta_key = 'date'", $type );
@@ -458,9 +461,17 @@ class Event_News_Public {
         $filter_html = ''; $i= 0;
         foreach ($year_array as $year => $month){
             $active = 'filter-inactive';
-            if($i == 0){
-                $active = 'filter-active';
+            if(empty($month_str)){
+                if($i == 0){
+                    $active = 'filter-active';
+                }
             }
+            else{
+                if($year == $year_str){
+                    $active = 'filter-active';
+                }
+            }
+
 
             $url = get_year_link( $year ).$suffix;
 
@@ -470,7 +481,11 @@ class Event_News_Public {
                         .'<ul class="d-month">';
                         foreach($month as $each) {
                             $url = get_month_link( $year, $each ).$suffix;
-                            $filter_html .= '<li> <a data-year-name="'.$each.'" href="'.$url.'">'.$wp_locale->get_month( $each ).'</a> </li>';
+                            $current_month = '';
+                            if($year == $year_str && $each == $month_str){
+                                $current_month = 'active';
+                            }
+                            $filter_html .= '<li class="'.$current_month.'"> <a  data-year-name="'.$each.'" href="'.$url.'">'.$wp_locale->get_month( $each ).'</a> </li>';
                          }
             $filter_html .= '</ul>'
                 .'</li>'
