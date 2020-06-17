@@ -30,7 +30,8 @@ get_header();
                     </div>
                     <div class="time">
                         <i class="far fa-clock"></i>
-                        <?php echo esc_html( human_time_diff( get_the_time('U'), current_time('timestamp') ) ) . ' ago'; ?>
+                        <?php// echo esc_html( human_time_diff( get_the_time('U'), current_time('timestamp') ) ) . ' ago'; ?>
+                        <?php echo esc_html( get_field('duration' )); ?>
                     </div>
                    
                 </div>
