@@ -26,7 +26,10 @@ get_header();
                 <div class="news-date-wrap">
                     <div class="date">
                         <i class="far fa-calendar-alt"></i>
-                        <?php echo esc_html(  get_field('date' ) ); ?>
+                        <?php 
+                        $date = date_create(get_field('date' ));
+                        echo date_format($date,"l, F jS Y g A (T)");
+						?>
                     </div>
                     <div class="time">
                         <i class="far fa-clock"></i>

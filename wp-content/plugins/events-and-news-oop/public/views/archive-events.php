@@ -158,8 +158,8 @@ get_header();
 			                        <br />
 			                        <!-- <strong>Event Date:</strong> -->
 			                        <?php
-										//$current_date = date('l F jS Y - g:i A');
-			                        $current_date = date('l, F jS Y g:i A T');
+									//$current_date = date('l, F jS Y g:i A T');
+									$current_date = date('F j, Y g:i a');
 			                        $new_date_format= date( 'j F Y', strtotime($event_date));
 			                        if ( strtotime($current_date) < strtotime($event_date) ) { ?>
 			                            <h4>Upcoming On</h4>
