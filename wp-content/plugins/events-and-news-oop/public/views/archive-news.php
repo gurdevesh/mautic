@@ -12,7 +12,7 @@
 
 get_header();
 
-
+$meta_query = array();
 if(is_month()){
     $month_str = get_query_var('custom_month');
     $year_str = get_query_var('custom_year');
