@@ -62,7 +62,8 @@ $(document).on('click', '.d-year', function(){
     }
 });
 
-$(document).on('click', '.current-year-month a', function(){
+$(document).on('click', '.current-year-month a', function(e){
+    e.preventDefault();
     $('.custom-calender').toggleClass('dd-active');
 })
 
