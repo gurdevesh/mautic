@@ -466,7 +466,7 @@ class Event_News_Public {
 
             $filter_html .= '<ul class="filter '.$active.'">'
                     .'<li>'
-                        .'<a class="d-year" data-year-name="'.$year.'" href="'.$url.'">'.$year.'</a>'
+                        .'<label class="d-year" data-year-name="'.$year.'">'.$year.'</label>'
                         .'<ul class="d-month">';
                         foreach($month as $each) {
                             $url = get_month_link( $year, $each ).$suffix;
@@ -485,7 +485,6 @@ class Event_News_Public {
         //Only alter query if custom variable is set.
         $month_str = $query->get('monthnum');
         $year_str = $query->get('year');
-
         if( !empty($month_str) ){
 
             $meta_query = $query->get('meta_query');
@@ -495,17 +494,29 @@ class Event_News_Public {
             //Convert 2012/05 into a datetime object get the first and last days of that month in yyyy/mm/dd format
             $month = new DateTime($year_str.'/'.$month_str.'/01');
             //Get posts with date between the first and last of given month
-            $meta_query[] = array(
-                'key' => 'date',
-                'value' => array($month->format('Y-m-d').' 00:00:00',$month->format('Y-m-t'). ' 23:59:59'),
-                'compare' => 'BETWEEN',
-            );
+            if($query->get('post_type') == 'events'){
+                $meta_query[] = array(
+                    'key' => 'date',
+                    'value' => array($month->format('Y-m-d').' 00:00:00',$month->format('Y-m-t'). ' 23:59:59'),
+                    'compare' => 'BETWEEN',
+                );
+            }
+            else if($query->get('post_type') == 'news'){
+                $meta_query[] = array(
+                    'key' => 'date',
+                    'value' => array($month->format('Ymd'),$month->format('Ymt')),
+                    'compare' => 'BETWEEN',
+                    'type' => 'date',
+                );
+            }
+
             $query->set('meta_query',$meta_query);
             $query->set('year','');
             $query->set('monthnum','');
             $query->set('custom_month',$month_str);
             $query->set('custom_year',$year_str);
 //            echo '<pre>';print_r($query);
+
 
         }
     }
