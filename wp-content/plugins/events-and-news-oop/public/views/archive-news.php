@@ -20,8 +20,9 @@ if(is_month()){
         $month = new DateTime($year_str.'/'.$month_str.'/01');
         $meta_query = array(
             'key' => 'date',
-            'value' => array($month->format('Y-m-d').' 00:00:00',$month->format('Y-m-t'). '23:59:59'),
+            'value' => array($month->format('Ymd'),$month->format('Ymt')),
             'compare' => 'BETWEEN',
+            'type' => 'date'
         );
     }
 }
