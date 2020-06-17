@@ -557,13 +557,13 @@ body.events-template-default, body.news-template-default{
 }
 
 .current-year-month a .fa-chevron-down {
-    justify-self: flex-end;
+    
     display: flex;
     position: absolute;
     right: 10px;
 }
 
-.current-year-month a:hover, .current-year-month.active a {
+.dd-active .current-year-month a {
     color: #e55165;
     border-color: #e55165;
 }
@@ -577,6 +577,10 @@ body.events-template-default, body.news-template-default{
     top: 100%;
     left: 0;
     padding: 10px 15px;
+    display: none;;
+}
+.dd-active .calender-wrap {
+    display: block;
 }
 
 .custom-calender {
@@ -633,6 +637,10 @@ body.events-template-default, body.news-template-default{
 .months-wrap .month.active:after {
     background: #e55165;
 }
+
+
+
+
 @media (max-width: 768px){
     .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
         max-width: 100%;

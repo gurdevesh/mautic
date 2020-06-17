@@ -61,3 +61,8 @@ $(document).on('click', '.d-year', function(){
         $(this).parents('ul.filter').removeClass('filter-active').addClass('filter-inactive');
     }
 });
+
+$(document).on('click', '.current-year-month a', function(){
+    $('.custom-calender').toggleClass('dd-active');
+})
+
