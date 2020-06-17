@@ -194,7 +194,6 @@ get_header();
 					    				<?php
 					                    $location = get_field( 'location' );
 					                    if(!empty($location)){ ?>
-					                        <strong>Location:</strong>
 					                        <?php  echo get_field( 'location' );
 					                    } ?>
 					    			</div>
