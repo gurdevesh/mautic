@@ -14,7 +14,8 @@ get_header();
 	<section id="primary" class="content-area">
     	<div class="container">
     		<h2>Events</h2>
-            <?php
+            <?
+			$meta_query = array();
             if(is_month()){
                 $month_str = get_query_var('custom_month');
                 $year_str = get_query_var('custom_year');
