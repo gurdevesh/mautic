@@ -40,6 +40,7 @@ get_header();
                         <?php the_title() ?>
                     </h2>
                 </div>
+                <?php $bg = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' ); ?>
                 <div class="single-news-desc">
                     <img src="<?php echo $bg[0]; ?>" class="img-responsive" />
                     <?php the_content(); ?>
