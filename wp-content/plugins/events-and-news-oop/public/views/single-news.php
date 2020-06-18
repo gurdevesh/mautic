@@ -21,9 +21,16 @@ get_header();
                             <?php 
                                 $event_date = get_field('date' );
                                                     
+                               
                                 $date = strtotime($event_date);
-                                echo date_format($date,"l, F jS Y");
+                                $month =  date('F', $date);
 
+                                $dname = date('l', $date); 
+                                $day =  date('js', $date);
+                               
+                                $year =  date('Y', $date);
+
+                                echo $dname.', '.$month.' '.$day.' '.$year ;
                             ?>
                         </div>
                         <div class="time">
