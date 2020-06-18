@@ -520,6 +520,7 @@ body.events-template-default, body.news-template-default{
 
 .mauticform_wrapper {
     margin: 0;
+    position: relative;
 }
 
 .mauticform-row {
@@ -528,11 +529,13 @@ body.events-template-default, body.news-template-default{
 }
 
 .mauticform-row .mauticform-input {font-size: 16px;flex-basis: 100%;padding: 10px;max-width: 100%;}
-
+.mauticform-innerform{
+    position: relative;
+}
 .mauticform-row .mauticform-button {
     font-size: 16px;
     padding: 0;
-    flex-basis: 200px;
+    flex-basis: 230px;
     padding: 10px 20px;
     background: #e55165;
     text-decoration: none;
@@ -808,4 +811,7 @@ ul.filter-active .d-month {
     font-size: 14px;
     font-weight: bold;
     margin: 10px 0 0 0;
+} 
+.overview-tab .mauticform-message,.overview-tab .mauticform-error { 
+    margin: 0px 0 0 0;
 }
