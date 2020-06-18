@@ -191,6 +191,9 @@ if(!empty($page)){
                             <div class="collapsible-dates">
                                 <?php echo do_shortcode("[si_archive_filter type='news']"); ?>
                             </div>
+                            <div class="custom-calender">
+                                <?php echo do_shortcode("[si_archive_filter_mobile type='news']"); ?>
+                            </div>
                         </div>
                         <div class="col-md-10">
                             <div class="news-listing">
