@@ -195,7 +195,7 @@ ul {}
 .container {
     max-width: 1180px;
     margin: 0px auto;
-   	padding: 0px 15px;	 
+    padding: 0px 15px;   
 }
 
 .tabs-section ul#myTab {
@@ -223,8 +223,8 @@ ul {}
 ul#myTab {}
 
 .tabs-section ul#myTab li a:hover, .tabs-section ul#myTab li a.active {
-    color: #e55165;
-    border-color: #e55165;
+    color: #e55165 !important;
+    border-color: #e55165 !important;
 }
 
 .tab-content .tab-pane {
@@ -299,15 +299,15 @@ ul#myTab {}
 }
 
 .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12{
-	padding: 0px 15px;
+    padding: 0px 15px;
 }
 .col-md-1 {
     flex-basis: 8.333333%;
     max-width: 8.333333%;
 }
 .col-md-2{
-	flex-basis: 16.666667%;
-    max-width: 16.666667%;	
+    flex-basis: 16.666667%;
+    max-width: 16.666667%;  
 }
 .col-md-3 {
     flex-basis: 25%;
@@ -338,12 +338,12 @@ ul#myTab {}
     max-width: 75%;
 }
 .col-md-10{
-	flex-basis: 83.333333%;
-    width: 83.333333%;	
+    flex-basis: 83.333333%;
+    width: 83.333333%;  
 }
 .col-md-11{
-	flex-basis: 91.666667%;
-    width: 91.666667%;	
+    flex-basis: 91.666667%;
+    width: 91.666667%;  
 }
 .col-md-12 {
     flex-basis: 100%;
@@ -368,7 +368,7 @@ ul#myTab {}
     position: absolute;
     background: #4b4b55;
     color: #fff;
-    padding: 10px 15px;
+    padding: 4px 15px;
     z-index: 0;
 }
 
@@ -382,19 +382,20 @@ ul#myTab {}
 }
 .news-date {
     color: #4b4b55;
-    padding: 60px 15px 15px 15px;
+    padding: 50px 15px 10px 15px;
     display: flex;
     align-items: baseline;
+    font-size: 16px;
 }
 
 .news-date span.day {
     font-size: 24px;
     font-weight: bold;
-    padding-right: 3px;
+    padding-right: 5px;
 }
 
 .news-date span.month {
-    padding-right: 3px;
+    padding-right: 5px;
 }
 
 .news-tags ul {
@@ -409,6 +410,8 @@ ul#myTab {}
 .news-tags ul li {
     padding: 0;
     margin: 0;
+    font-size: 16px;
+    color: #343434;
 }
 
 .news-tags {
@@ -418,20 +421,22 @@ ul#myTab {}
 h5.news-title {
     margin: 0px;
     color: #000;
-    font-size: 16px;
-    padding: 10px 0px;
+    font-size: 18px;
+    padding: 5px 0px;
 }
 
 h5.news-title a {
     color: #000;
     text-decoration: none;
+    font-family: CircularTT-Bold !important;
 }
 
 .news-excerpt p {
     color: #4b4b55;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 16px;
+    line-height: 22px;
     margin-bottom: 0;
+    margin: 0;
 }
 
 .news-excerpt p a, .pdf-download-link a {
@@ -449,20 +454,23 @@ h5.news-title a {
     right: 0;
     bottom: 0;
     display: block;
+    padding: 3px 14px;
 }
 
 .pdf-download-link {
     display: flex;
-    padding-right: 110px;
+    right: 140px;
     justify-content: flex-end;
-    font-size: 14px;
+    font-size: 16px;
+    position: absolute;
+    bottom: 10px;
 }
 .news-listed-wrap .row {
     margin-bottom: 0;
 }
 
 .news-excerpt {
-    padding-bottom: 30px;
+    padding-bottom: 60px;
 }
 
 .news-excerpt p a:hover, .pdf-download-link a:hover {
@@ -517,15 +525,15 @@ body.news-template-default {
 }
 
 .single-news-desc img{
-	display: block;
-	margin-bottom: 20px;
+    display: block;
+    margin-bottom: 20px;
 }
 
 .single-news-desc p strong {
     color: #000;
 }
 body.events-template-default, body.news-template-default{
-	background: #fff;
+    background: #fff;
 }
 
 .mautic-sub-form {
@@ -840,4 +848,32 @@ ul.filter-active .d-month {
 } 
 .overview-tab .mauticform-message,.overview-tab .mauticform-error,.overview-tab  .mauticform-errormsg { 
     margin: 0px 0 0 0;
+}
+
+/*****FB  THEME OVERITE ******/
+.page-template-archive-news section#primary {
+    /* max-width: 1100px; */
+    /* margin: 110px auto 0px auto; */
+}
+
+.page-template-archive-news .container, .post-type-archive-news .container {
+    padding: 120px 0px;
+}
+
+.tabs-section ul#myTab li:before {
+    display: none !important;
+}
+
+.page-template-archive-news .container *, .post-type-archive-news .container * {
+    box-sizing: border-box;
+}
+
+.page-template-archive-news .container li:before, .post-type-archive-news .container li:before {
+    display: none !important;
+}
+.news-listed-wrap:hover .news-category {
+    background: #e55165;
+}
+.news-excerpt p a i {
+    display: none;
 }

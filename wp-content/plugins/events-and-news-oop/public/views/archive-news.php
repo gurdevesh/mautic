@@ -36,14 +36,6 @@ $args = array (
 );
 $loop = new WP_Query($args);
 
-if($paged == 1){
-    $overview  = 'show active';
-    $news  = 'inactive';
-}
-else{
-    $overview  = 'inactive';
-    $news  = 'show active';
-}
 
 $page_id = '';
 $page = get_page_by_path( "news", OBJECT, array( 'page' ) );
@@ -64,7 +56,7 @@ if(!empty($page)){
                   </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade <?php echo $overview ?> overview-tab" id="overview"  role="tabpanel" aria-labelledby="overview-tab">
+                    <div class="tab-pane fade  overview-tab" id="overview"  role="tabpanel" aria-labelledby="overview-tab">
                         <div class="media-wrap"> 
                             <div class="row">
                                 <div class="col-md-8">
@@ -105,7 +97,7 @@ if(!empty($page)){
                                                         if( $media_contact ) {
                                                     ?>        
                                                      <li> 
-                                                        <i class="fas fa-phone-alt"></i> 
+                                                        <i class="fas fa-phone"></i> 
                                                         <a href="tel:<?php echo $media_contact; ?> "> <?php echo $media_contact; ?> </a>
                                                     </li>
                                                     <?php 
@@ -227,7 +219,7 @@ if(!empty($page)){
                            
                         </div>
                     </div>
-                  <div class="tab-pane fade <?php echo $news ?>" id="news" role="tabpanel" aria-labelledby="news-tab">
+                  <div class="tab-pane fade " id="news" role="tabpanel" aria-labelledby="news-tab">
                       <div class="row"> 
                             <div class="col-md-2"> 
                                 <div class="collapsible-dates">
@@ -256,7 +248,7 @@ if(!empty($page)){
                                                 <div class="news-date"> 
                                                     <?php
                                                     $event_date = get_field('date' );
-                                                    
+
                                                     $date = strtotime($event_date);
                                                     $day =  date('j', $date);
                                                     $month =  date('M', $date);
