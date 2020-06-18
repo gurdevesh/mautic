@@ -477,7 +477,7 @@ class Event_News_Public {
 
             $filter_html .= '<ul class="filter '.$active.'">'
                     .'<li>'
-                        .'<label class="d-year" data-year-name="'.$year.'">'.$year.'</label>'
+                        .'<label class="d-year" data-year-name="'.$year.'"><strong>'.$year.'</strong></label>'
                         .'<ul class="d-month">';
                         foreach($month as $each) {
                             $url = get_month_link( $year, $each ).$suffix;
