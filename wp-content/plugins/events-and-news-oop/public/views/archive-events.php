@@ -182,6 +182,13 @@ get_header();
 				    				<div class="event-title"> 
 					    				<h3> <a href="<?php the_permalink() ?>"><?php the_title() ?></a> </h3>
 					    			</div>
+					    			<div class="mobile-date" >
+					    				<i class="far fa-calendar-minus"></i>
+					    				<span class="day"> <?php echo $day; ?></span>
+					    				<span class="month"> <?php echo $month; ?> </span>
+					    				<span class="year"> <?php echo $year; ?> </span>
+						    			
+					    			</div>
 					    			<div class="event-location"> 
 					    				<i class="fas fa-map-marker-alt"></i>
 					    				<?php
