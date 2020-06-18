@@ -13,24 +13,19 @@
  * @subpackage        EventNews/includes
  */
 class Event_News {
-    /**
-     * Define the core functionality of the plugin.
-     *
-     * Set the plugin name and the plugin version that can be used throughout the plugin.
-     * Load the dependencies, define the locale, and set the hooks for the admin area and
-     * the public-facing side of the site.
-     *
-     * @since    1.0.0
-     */
 
     public function __construct() {
         // Do nothing.
     }
 
+    /**
+     * Include required classes and set the necessary hooks
+     */
     public function initialize(){
 
         $this->load_dependencies();
         $this->define_public_hooks();
+        $this->define_shortcodes();
 
     }
 
@@ -43,12 +38,13 @@ class Event_News {
          * side of the site.
          */
         require_once EVENTNEWS_PLUGIN_DIR . 'includes/class-event-news-public.php';
+        require_once EVENTNEWS_PLUGIN_DIR . 'includes/class-shortcode.php';
+
     }
 
     /**
      * Register all of the hooks related to the public-facing functionality
      * of the plugin.
-     *
      */
     private function define_public_hooks() {
 
@@ -69,9 +65,19 @@ class Event_News {
         add_filter('the_excerpt', array( $plugin_public, 'excerpt_with_read_more') );
         add_filter('excerpt_more', array( $plugin_public, 'modify_read_more') );
 
-        add_shortcode('si_breadcrumbs', array( $plugin_public, 'show_breadcrumbs') );
-        add_shortcode('si_archive_filter', array( $plugin_public, 'filter_archive_year_month') );
-        add_shortcode('si_archive_filter_mobile', array( $plugin_public, 'filter_archive_year_month') );
+    }
+
+    /**
+     * Register all the shortcodes
+     */
+    private function define_shortcodes(){
+
+        $shortcode = new Shortcode();
+
+        add_shortcode('si_breadcrumbs', array( $shortcode, 'show_breadcrumbs') );
+        add_shortcode('si_archive_filter', array( $shortcode, 'filter_archive_year_month') );
+        add_shortcode('si_archive_filter_mobile', array( $shortcode, 'calendar_for_mobile') );
+
     }
 
 }

@@ -64,6 +64,25 @@ $(document).on('click', '.d-year', function(){
 
 $(document).on('click', '.current-year-month a', function(e){
     e.preventDefault();
-    $('.custom-calender').toggleClass('dd-active');
-})
 
+    var current_year = $('.current-year-month .year-month').attr('data-year');
+    var current_month = $('.current-year-month .year-month').attr('data-month');
+    $('.custom-calender').toggleClass('dd-active');
+
+    if(current_year != 'Year' && current_month != 'Month'){
+        $('.year-month-wrap[data-year="'+current_year+'"]').fadeIn('show');
+    }
+    else{
+        $('.year-month-wrap:first').fadeIn('show');
+    }
+});
+
+$(document).on('click', '.prev-year i', function () {
+    $(this).parents('.year-month-wrap').hide();
+    $(this).parents('.year-month-wrap').prev().fadeIn('show');
+});
+
+$(document).on('click', '.next-year i', function () {
+    $(this).parents('.year-month-wrap').hide();
+    $(this).parents('.year-month-wrap').next().fadeIn('show');
+});

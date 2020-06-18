@@ -9,7 +9,7 @@
  * @since Twenty Nineteen 1.0
  */
 
-get_header();
+include get_template_directory().'/fullwidth-header.php';
 ?>
 <div id="primary" class="content-area">
     <main id="main" class="site-main">

@@ -1,4 +1,29 @@
+/****** mautic css ******/
+.mauticform_wrapper { max-width: 600px; margin: 10px auto; }
+                                    .mauticform-innerform {}
+                                    .mauticform-post-success {}
+                                    .mauticform-name { font-weight: bold; font-size: 1.5em; margin-bottom: 3px; }
+                                    .mauticform-description { margin-top: 2px; margin-bottom: 10px; }
+                                    .mauticform-error { margin-bottom: 10px; color: red; }
+                                    .mauticform-message { margin-bottom: 10px;color: green; }
+                                    .mauticform-row { display: block; margin-bottom: 20px; }
+                                    .mauticform-label { font-size: 1.1em; display: block; font-weight: bold; margin-bottom: 5px; }
+                                    .mauticform-row.mauticform-required .mauticform-label:after { color: #e32; content: " *"; display: inline; }
+                                    .mauticform-helpmessage { display: block; font-size: 0.9em; margin-bottom: 3px; }
+                                    .mauticform-errormsg { display: block; color: red; margin-top: 2px; }
+                                    .mauticform-selectbox, .mauticform-input, .mauticform-textarea { width: 100%; padding: 0.5em 0.5em; border: 1px solid #CCC; background: #fff; box-shadow: 0px 0px 0px #fff inset; border-radius: 4px; box-sizing: border-box; }
+                                    .mauticform-checkboxgrp-row {}
+                                    .mauticform-checkboxgrp-label { font-weight: normal; }
+                                    .mauticform-checkboxgrp-checkbox {}
+                                    .mauticform-radiogrp-row {}
+                                    .mauticform-radiogrp-label { font-weight: normal; }
+                                    .mauticform-radiogrp-radio {}
+                                    .mauticform-button-wrapper .mauticform-button.btn-default, .mauticform-pagebreak-wrapper .mauticform-pagebreak.btn-default { color: #5d6c7c;background-color: #ffffff;border-color: #dddddd;}
+                                    .mauticform-button-wrapper .mauticform-button, .mauticform-pagebreak-wrapper .mauticform-pagebreak { display: inline-block;margin-bottom: 0;font-weight: 600;text-align: center;vertical-align: middle;cursor: pointer;background-image: none;border: 1px solid transparent;white-space: nowrap;padding: 6px 12px;font-size: 13px;line-height: 1.3856;border-radius: 3px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
+                                    .mauticform-button-wrapper .mauticform-button.btn-default[disabled], .mauticform-pagebreak-wrapper .mauticform-pagebreak.btn-default[disabled] { background-color: #ffffff; border-color: #dddddd; opacity: 0.75; cursor: not-allowed; }
+                                    .mauticform-pagebreak-wrapper .mauticform-button-wrapper {  display: inline; }
 
+                                    
 
 .event-wrap {
     padding-bottom: 40px;
@@ -271,6 +296,8 @@ ul#myTab {}
 .twitter-wrap {
     height: 500px;
     overflow: auto;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
 }
 
 .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12{
@@ -520,6 +547,7 @@ body.events-template-default, body.news-template-default{
 
 .mauticform_wrapper {
     margin: 0;
+    position: relative;
 }
 
 .mauticform-row {
@@ -528,11 +556,13 @@ body.events-template-default, body.news-template-default{
 }
 
 .mauticform-row .mauticform-input {font-size: 16px;flex-basis: 100%;padding: 10px;max-width: 100%;}
-
+.mauticform-innerform{
+    position: relative;
+}
 .mauticform-row .mauticform-button {
     font-size: 16px;
     padding: 0;
-    flex-basis: 200px;
+    flex-basis: 230px;
     padding: 10px 20px;
     background: #e55165;
     text-decoration: none;
@@ -579,7 +609,10 @@ body.events-template-default, body.news-template-default{
     top: 100%;
     left: 0;
     padding: 10px 15px;
-    display: none;;
+    display: none;
+}
+.year-month-wrap{
+    display: none;
 }
 .dd-active .calender-wrap {
     display: block;
@@ -772,16 +805,22 @@ ul.filter-active .d-month {
     max-width: 100%;
     display: flex;
     justify-content: flex-end;
+    padding: 0px;
 }
 
 .page-template-archive-events .mautic-sub-form style {
     display: none;
 }
 
-.page-template-archive-events .mauticform_wrapper {padding: 0;margin: 0;max-width: 500px;flex-basis: 500px;}
+.page-template-archive-events .mauticform_wrapper {
+    padding: 0;
+    margin: 0;
+    max-width: 590px;
+    flex-basis: 590px;
+}
 
 .page-template-archive-events .mautic-sub-form h4 {
-    margin: 20px 25px;
+    margin: 10px 15px 10px 0;
 }
 
 .mauticform-button-wrapper .mauticform-button-wrapper {
@@ -791,4 +830,18 @@ ul.filter-active .d-month {
 
 .page-template-archive-events  .mauticform-row {
     margin: 0;
+}
+
+.months-wrap.hidden{
+    display: none;
+}
+.mauticform-message, .mauticform-error, .mauticform-errormsg {
+    position: absolute;
+    top: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+} 
+.overview-tab .mauticform-message,.overview-tab .mauticform-error,.overview-tab  .mauticform-errormsg { 
+    margin: 0px 0 0 0;
 }
