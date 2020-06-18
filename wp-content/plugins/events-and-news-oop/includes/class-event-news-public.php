@@ -227,13 +227,13 @@ class Event_News_Public {
     function show_breadcrumbs()
     {
         // Set variables for later use
-        $home_link        = home_url('/');
-        $home_text        = __( 'Home' );
+        //$home_link        = home_url('/');
+        //$home_text        = __( 'Home' );
         $link_before      = '<span typeof="v:Breadcrumb">';
         $link_after       = '</span>';
         $link_attr        = ' rel="v:url" property="v:title"';
         $link             = $link_before . '<a' . $link_attr . ' href="%1$s">%2$s</a>' . $link_after;
-        $delimiter        = ' &raquo; ';              // Delimiter between crumbs
+        $delimiter        = ' / ';              // Delimiter between crumbs
         $before           = '<span class="current">'; // Tag before the current crumb
         $after            = '</span>';                // Tag after the current crumb
         $page_addon       = '';                       // Adds the page number if the query is paged
@@ -419,17 +419,14 @@ class Event_News_Public {
 
         $breadcrumb_output_link  = '';
         $breadcrumb_output_link .= '<div class="breadcrumb">';
-        if (    is_home()
-            || is_front_page()
-        ) {
-            // Do not show breadcrumbs on page one of home and frontpage
+        if (    is_home() || is_front_page()) {
             if ( is_paged() ) {
-                $breadcrumb_output_link .= '<a href="' . $home_link . '">' . $home_text . '</a>';
-                $breadcrumb_output_link .= $page_addon;
+                // $breadcrumb_output_link .= '<a href="' . $home_link . '">' . $home_text . '</a>';
+                // $breadcrumb_output_link .= $page_addon;
             }
         } else {
-            $breadcrumb_output_link .= '<a href="' . $home_link . '" rel="v:url" property="v:title">' . $home_text . '</a>';
-            $breadcrumb_output_link .= $delimiter;
+            //$breadcrumb_output_link .= '<a href="' . $home_link . '" rel="v:url" property="v:title">' . $home_text . '</a>';
+            //$breadcrumb_output_link .= $delimiter;
             $breadcrumb_output_link .= $breadcrumb_trail;
             $breadcrumb_output_link .= $page_addon;
         }
