@@ -280,9 +280,7 @@ if(!empty($page)){
                                                 <div class="news-date"> 
                                                     <?php
                                                     $event_date = get_field('date' );
-                                                    echo "<pre>";
-                                                    print_r($event_date);
-                                                    echo "</pre>";
+                                                    
                                                     $date = strtotime($event_date);
                                                     $day =  date('j', $date);
                                                     $month =  date('M', $date);
