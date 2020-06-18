@@ -493,6 +493,118 @@ class Event_News_Public {
         return $filter_html;
     }
 
+    function calendar_for_mobile($attr){
+        $type = $attr['type'];
+
+        $month_str = get_query_var('custom_month');
+        $year_str = get_query_var('custom_year');
+
+        global $wpdb, $wp_locale;
+
+        $sql_where = $wpdb->prepare( "WHERE p.post_type = %s AND p.post_status = 'publish' AND pm.meta_key = 'date'", $type );
+
+        $query = "SELECT YEAR(pm.meta_value) AS year, MONTH(pm.meta_value) AS month from $wpdb->posts p left join $wpdb->postmeta pm on p.ID = pm.post_id $sql_where GROUP BY year,month ORDER BY YEAR(pm.meta_value) DESC";
+
+        $results = $wpdb->get_results( $query );
+
+        $year_array = array();
+//        $first = 0;
+        foreach ($results as $each){
+//            if($first == 0){
+//                $first_year = $each->year;
+//            }
+            $year_array[$each->year][] = $each->month;
+//            $first = 1;
+        }
+
+        $suffix = '?post_type='.$type;
+        $filter_html = ''; $i= 0;
+
+        $month_name_array = array(
+            'JAN',
+            'FEB',
+            'MAR',
+            'APR',
+            'MAY',
+            'JUN',
+            'JUL',
+            'AUG',
+            'SEP',
+            'OCT',
+            'NOV',
+            'DEC'
+        );
+
+        if(empty($month_str)){
+            $year_str = 'Year';
+            $month_short = 'Month';
+            $current_month_text = $month_short.' '.$year_str;
+        }
+        else{
+            $month_name = $wp_locale->get_month( $month_str );
+            $month_short = $month_name_array[($month_str-1)];
+            $current_month_text = $month_name.' '.$year_str;
+        }
+
+        $filter_html = '<div class="current-year-month">'
+				            .'<a href="#"><i class="far fa-calendar-minus"></i>'
+                                .'<label class="year-month" data-year="'.$year_str.'" data-month="'.$month_short.'">'
+                                .$current_month_text
+                                .'</label>'
+				            .'<i class="fas fa-chevron-down"></i></a>'
+				        .'</div>'; //.current-year-month ends
+
+
+
+        $filter_html .= '<div class="calender-wrap">';
+
+        $i = 1; $count_years = count($year_array);
+        foreach ($year_array as $this_year => $this_month){
+            $prev = $next = ''; // disable prev and next button on first and last div respectively
+            if($i == 1){
+                $prev = 'disabled';
+            }
+            else if($i == $count_years){
+                $next = 'disabled';
+            }
+
+            $filter_html .= '<div class="year-month-wrap" data-year="'.$this_year.'">'
+            .'<div class="year-wrap">'
+            .'<div class="current-year">'
+            .$this_year
+            .'</div>'
+            .'<div class="year-next-prev">'
+            .'<span '.$prev.' class="prev-year"> <i class="fas fa-chevron-up"></i> </span>'
+            .'<span '.$next.' class="next-year"> <i class="fas fa-chevron-down"></i> </span>'
+            .'</div>'
+            .'</div>'; // .year-wrap ends
+
+            $filter_html .= '<div class="months-wrap">';
+            foreach ($month_name_array as $key => $each_month){
+                $disabled = $month_url = $active = '';
+                if(!in_array(($key+1), $this_month)){ // if posts does not exists for this month
+                    $disabled = 'disabled';
+                }
+                else{
+                    $month_url = get_month_link( $this_year, ($key+1) ).$suffix;
+                }
+
+                if($month_str == ($key+1) && $year_str == $this_year){ // to highlight the current month page loaded
+                    $active = 'active';
+                }
+
+                $filter_html .= '<div class="month '.$disabled.' '.$active.'"><a href="'.$month_url.'"> '.$each_month.' </a></div>';
+            }
+            $filter_html .= '</div>'; // .months-wrap ends
+            $filter_html .= '</div>'; // .year-month-wrap ends
+
+            $i++;
+        }
+
+        $filter_html .= '</div>'; // .calender-wrap ends
+        return $filter_html;
+    }
+
     function pre_get_posts($query){
         //Only alter query if custom variable is set.
         $month_str = $query->get('monthnum');

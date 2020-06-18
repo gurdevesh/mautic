@@ -579,7 +579,10 @@ body.events-template-default, body.news-template-default{
     top: 100%;
     left: 0;
     padding: 10px 15px;
-    display: none;;
+    display: none;
+}
+.year-month-wrap{
+    display: none;
 }
 .dd-active .calender-wrap {
     display: block;
@@ -789,4 +792,8 @@ ul.filter-active .d-month {
 
 .page-template-archive-events  .mauticform-row {
     margin: 0;
+}
+
+.months-wrap.hidden{
+    display: none;
 }

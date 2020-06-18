@@ -102,34 +102,36 @@ get_header();
     			</div>
     			<div class="col-md-10">
     				<div class="custom-calender">
-				        <div class="current-year-month">
-				            <a href="#"> <i class="far fa-calendar-minus"></i> April 2020  <i class="fas fa-chevron-down"></i></a>
-				        </div>
-				        <div class="calender-wrap">
-				            <div class="year-wrap">
-				                <div class="current-year">
-				                    2020
-				                </div>
-				                <div class="year-next-prev">
-				                    <a href="" class="prev-year"> <i class="fas fa-chevron-up"></i> </a>
-				                    <a href="" class="next-year"> <i class="fas fa-chevron-down"></i> </a>
-				                </div>
-				            </div>
-				            <div class="months-wrap">
-				                <div class="month"> <a href="#"> JAN </a> </div>
-				                <div class="month"> <a href="#"> FEB </a> </div>
-				                <div class="month"> <a href="#"> MAR </a> </div>
-				                <div class="month"> <a href="#"> APR </a> </div>
-				                <div class="month"> <a href="#"> MAY </a> </div>
-				                <div class="month active"> <a href="#"> JUN </a> </div>
-				                <div class="month"> <a href="#"> JUL </a> </div>
-				                <div class="month"> <a href="#"> AUG </a> </div>
-				                <div class="month"> <a href="#"> SEP </a> </div>
-				                <div class="month"> <a href="#"> OCT </a> </div>
-				                <div class="month"> <a href="#"> NOV </a> </div>
-				                <div class="month"> <a href="#"> DEC </a> </div>
-				            </div>
-				        </div>
+                        <?php echo do_shortcode("[si_archive_filter_mobile type='events']"); ?>
+
+                        <!--				        <div class="current-year-month">-->
+<!--				            <a href="#"> <i class="far fa-calendar-minus"></i> April 2020  <i class="fas fa-chevron-down"></i></a>-->
+<!--				        </div>-->
+<!--				        <div class="calender-wrap">-->
+<!--				            <div class="year-wrap">-->
+<!--				                <div class="current-year">-->
+<!--				                    2020-->
+<!--				                </div>-->
+<!--				                <div class="year-next-prev">-->
+<!--				                    <a href="" class="prev-year"> <i class="fas fa-chevron-up"></i> </a>-->
+<!--				                    <a href="" class="next-year"> <i class="fas fa-chevron-down"></i> </a>-->
+<!--				                </div>-->
+<!--				            </div>-->
+<!--				            <div class="months-wrap">-->
+<!--				                <div class="month"> <a href="#"> JAN </a> </div>-->
+<!--				                <div class="month"> <a href="#"> FEB </a> </div>-->
+<!--				                <div class="month"> <a href="#"> MAR </a> </div>-->
+<!--				                <div class="month"> <a href="#"> APR </a> </div>-->
+<!--				                <div class="month"> <a href="#"> MAY </a> </div>-->
+<!--				                <div class="month active"> <a href="#"> JUN </a> </div>-->
+<!--				                <div class="month"> <a href="#"> JUL </a> </div>-->
+<!--				                <div class="month"> <a href="#"> AUG </a> </div>-->
+<!--				                <div class="month"> <a href="#"> SEP </a> </div>-->
+<!--				                <div class="month"> <a href="#"> OCT </a> </div>-->
+<!--				                <div class="month"> <a href="#"> NOV </a> </div>-->
+<!--				                <div class="month"> <a href="#"> DEC </a> </div>-->
+<!--				            </div>-->
+<!--				        </div>-->
 				    </div>
     				<?php
 		            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
