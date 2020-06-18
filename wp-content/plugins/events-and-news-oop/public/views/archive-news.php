@@ -10,7 +10,7 @@
  */
 
 
-get_header();
+include get_template_directory().'/fullwidth-header.php';
 
 $meta_query = array();
 if(is_month()){
@@ -32,7 +32,10 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $args = array (
     'post_type' => 'news',
     'paged'     => $paged,
-    'meta_query' => array($meta_query)
+    'meta_query' => array($meta_query),
+    'meta_key'			=> 'date',
+    'orderby'			=> 'meta_value',
+    'order'				=> 'DESC'
 );
 $loop = new WP_Query($args);
 
