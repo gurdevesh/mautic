@@ -805,13 +805,13 @@ ul.filter-active .d-month {
 .months-wrap.hidden{
     display: none;
 }
-.mauticform-message, .mauticform-error {
+.mauticform-message, .mauticform-error, .mauticform-errormsg {
     position: absolute;
     top: 100%;
     font-size: 14px;
     font-weight: bold;
     margin: 10px 0 0 0;
 } 
-.overview-tab .mauticform-message,.overview-tab .mauticform-error { 
+.overview-tab .mauticform-message,.overview-tab .mauticform-error,.overview-tab  .mauticform-errormsg { 
     margin: 0px 0 0 0;
 }
