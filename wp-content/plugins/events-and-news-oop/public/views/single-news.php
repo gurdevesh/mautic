@@ -26,11 +26,13 @@ get_header();
                                 $month =  date('F', $date);
 
                                 $dname = date('l', $date); 
-                                $day =  date('js', $date);
+                                $day =  date('j', $date);
+                                $daysub =  date('s', $date);
+                                
                                
                                 $year =  date('Y', $date);
 
-                                echo $dname.', '.$month.' '.$day.' '.$year ;
+                                echo $dname.', '.$month.' '.$day.$daysub.' '.$year ;
                             ?>
                         </div>
                         <div class="time">
