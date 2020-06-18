@@ -39,10 +39,7 @@ include get_template_directory().'/fullwidth-header.php';
                             echo $dname.', '.$month.' '.$day.' '.$year ;
                         ?>
                     </div>
-                    <div class="time">
-                        <i class="far fa-clock"></i>
-                        <?php echo esc_html( human_time_diff( get_the_time('U'), current_time('timestamp') ) ) . ' ago'; ?>
-                    </div>
+                    
                     <div class="category">
                         <i class="fas fa-sitemap"></i>
                         <?php

@@ -32,7 +32,10 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $args = array (
     'post_type' => 'news',
     'paged'     => $paged,
-    'meta_query' => array($meta_query)
+    'meta_query' => array($meta_query),
+    'meta_key'			=> 'date',
+    'orderby'			=> 'meta_value',
+    'order'				=> 'DESC'
 );
 $loop = new WP_Query($args);
 
@@ -255,7 +258,7 @@ if(!empty($page)){
                                                 
                                                 <div class="news-date"> 
                                                     <?php
-                                                    $event_date = get_field('date' );
+                                                    $event_date = the_field('date' );
                                                     
                                                     $date = strtotime($event_date);
                                                     $day =  date('j', $date);

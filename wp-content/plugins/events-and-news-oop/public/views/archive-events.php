@@ -84,7 +84,10 @@ include get_template_directory().'/fullwidth-header.php';
                 $args = array (
                     'post_type' => 'events',
                     'paged'         => $paged,
-                    'meta_query' => array($meta_query)
+                    'meta_query'    => array($meta_query),
+                    'meta_key'			=> 'date',
+                    'orderby'			=> 'meta_value',
+                    'order'				=> 'DESC'
                 );
                 $loop = new WP_Query($args);
                 /* Start the Loop */
