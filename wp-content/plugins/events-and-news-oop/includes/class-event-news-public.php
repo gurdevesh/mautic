@@ -164,6 +164,20 @@ class Event_News_Public {
             'top'
         );
 
+        // Customize the filter url with year month for custom post type Event pagination
+        add_rewrite_rule(
+            'si-events/([0-9]{4})/([0-9]{1,2})/page/([0-9]{1,2})/?$',
+            'index.php?post_type=events&year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]',
+            'top'
+        );
+
+        // Customize the filter url with year month for custom post type News pagination
+        add_rewrite_rule(
+            'news/([0-9]{4})/([0-9]{1,2})/page/([0-9]{1,2})/?$',
+            'index.php?post_type=news&year=$matches[1]&monthnum=$matches[2]&paged=$matches[3]',
+            'top'
+        );
+
         flush_rewrite_rules();
     }
 
