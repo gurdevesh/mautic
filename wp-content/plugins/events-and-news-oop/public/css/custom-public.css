@@ -796,7 +796,7 @@ ul.filter-inactive .d-month {
 ul.filter-active .d-month {
     display: block;
 }
-.page-template-archive-events .mautic-sub-form {
+.page-template-archive-events .mautic-sub-form, .post-type-archive-events .mautic-sub-form {
     margin-left: auto;
     max-width: 100%;
     display: flex;
@@ -804,18 +804,18 @@ ul.filter-active .d-month {
     padding: 0px;
 }
 
-.page-template-archive-events .mautic-sub-form style {
+.page-template-archive-events .mautic-sub-form style, .post-type-archive-events .mautic-sub-form style {
     display: none;
 }
 
-.page-template-archive-events .mauticform_wrapper {
+.page-template-archive-events .mauticform_wrapper, .post-type-archive-events .mauticform_wrapper {
     padding: 0;
     margin: 0;
     max-width: 590px;
     flex-basis: 590px;
 }
 
-.page-template-archive-events .mautic-sub-form h4 {
+.page-template-archive-events .mautic-sub-form h4, .post-type-archive-events .mautic-sub-form h4 {
     margin: 10px 15px 10px 0;
 }
 
@@ -824,7 +824,7 @@ ul.filter-active .d-month {
     margin: 0;
 }
 
-.page-template-archive-events  .mauticform-row {
+.page-template-archive-events .mauticform-row, .post-type-archive-events .mauticform-row {
     margin: 0;
 }
 
@@ -841,3 +841,8 @@ ul.filter-active .d-month {
 .overview-tab .mauticform-message,.overview-tab .mauticform-error,.overview-tab  .mauticform-errormsg { 
     margin: 0px 0 0 0;
 }
+
+.event-text a, .page-numbers{
+    text-decoration: none;
+}
+

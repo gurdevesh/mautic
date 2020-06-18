@@ -51,7 +51,7 @@ class Event_News {
         $plugin_public = new Event_News_Public();
 
         add_action( 'wp_enqueue_scripts', array( $plugin_public, 'enqueue_public_styles') );
-        add_action( 'wp_enqueue_scripts', array( $plugin_public, 'enqueue_public_scripts') );
+        add_action( 'wp_enqueue_scripts', array( $plugin_public, 'enqueue_public_scripts'), 999 );
 
         add_action('init', array( $plugin_public, 'create_post_type') );
         add_action('init', array( $plugin_public, 'create_taxonomy') );
