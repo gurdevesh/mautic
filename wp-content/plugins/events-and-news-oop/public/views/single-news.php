@@ -27,12 +27,12 @@ get_header();
 
                                 $dname = date('l', $date); 
                                 $day =  date('j', $date);
-                                $daysub =  date('s', $date);
+                                
                                 
                                
                                 $year =  date('Y', $date);
 
-                                echo $dname.', '.$month.' '.$day.$daysub.' '.$year ;
+                                echo $dname.', '.$month.' '.$day.' '.$year ;
                             ?>
                         </div>
                         <div class="time">
