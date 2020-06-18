@@ -31,7 +31,7 @@ class Event_News_Public {
     public function enqueue_public_scripts() {
 
         wp_enqueue_script( PLUGIN_NAME.'_script', EVENTNEWS_PLUGIN_URL . 'public/js/custom-public.js',
-            array( 'jquery' ) );
+            array( 'jquery' ),false, true );
     }
 
 
