@@ -184,6 +184,19 @@ class Event_News_Public {
     function add_rewrite_rules() {
         add_rewrite_rule('news/?$','index.php?pagename=news', 'top');
         add_rewrite_rule('events/?$','index.php?pagename=events', 'top');
+
+        add_rewrite_rule(
+            'news/([0-9]{4})/([0-9]{1,2})/?$',
+            'index.php?post_type=news&year=$matches[1]&monthnum=$matches[2]',
+            'top'
+        );
+
+        add_rewrite_rule(
+            'events/([0-9]{4})/([0-9]{1,2})/?$',
+            'index.php?post_type=events&year=$matches[1]&monthnum=$matches[2]',
+            'top'
+        );
+
         flush_rewrite_rules();
     }
 
@@ -454,7 +467,7 @@ class Event_News_Public {
             $year_array[$each->year][] = $each->month;
         }
 //        echo '<pre>';print_r($year_array);exit;
-        $suffix = '?post_type='.$type;
+//        $suffix = '?post_type='.$type;
         $filter_html = ''; $i= 0;
         foreach ($year_array as $year => $month){
             $active = 'filter-inactive';
@@ -470,14 +483,15 @@ class Event_News_Public {
             }
 
 
-            $url = get_year_link( $year ).$suffix;
+//            $url = get_year_link( $year ).$suffix;
 
             $filter_html .= '<ul class="filter '.$active.'">'
                     .'<li>'
                         .'<label class="d-year" data-year-name="'.$year.'"><strong>'.$year.'</strong></label>'
                         .'<ul class="d-month">';
                         foreach($month as $each) {
-                            $url = get_month_link( $year, $each ).$suffix;
+//                            $url = $type.'/'.get_month_link( $year, $each );
+                            $url = get_site_url().'/'.$type.'/'.$year.'/'.$each.'/';
                             $current_month = '';
                             if($year == $year_str && $each == $month_str){
                                 $current_month = 'active';
@@ -517,7 +531,7 @@ class Event_News_Public {
 //            $first = 1;
         }
 
-        $suffix = '?post_type='.$type;
+//        $prefix = 'news'.$type;
         $filter_html = ''; $i= 0;
 
         $month_name_array = array(
@@ -586,7 +600,7 @@ class Event_News_Public {
                     $disabled = 'disabled';
                 }
                 else{
-                    $month_url = get_month_link( $this_year, ($key+1) ).$suffix;
+                    $month_url = get_site_url().'/'.$type.'/'.$this_year.'/'.($key+1).'/';
                 }
 
                 if($month_str == ($key+1) && $year_str == $this_year){ // to highlight the current month page loaded
