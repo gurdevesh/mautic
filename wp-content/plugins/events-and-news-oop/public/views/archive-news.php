@@ -39,14 +39,6 @@ $args = array (
 );
 $loop = new WP_Query($args);
 
-if($paged == 1){
-    $overview  = 'show active';
-    $news  = 'inactive';
-}
-else{
-    $overview  = 'inactive';
-    $news  = 'show active';
-}
 
 $page_id = '';
 $page = get_page_by_path( "news", OBJECT, array( 'page' ) );

@@ -1,4 +1,4 @@
-$(document).on('click', '#myTab li a', function(e){
+jQuery(document).on('click', '#myTab li a', function(e){
     e.preventDefault();
     var t = $(this).attr('href');
     //debugger;
@@ -8,13 +8,13 @@ $(document).on('click', '#myTab li a', function(e){
     { //this is the start of our condition 
         $('#myTab li a').removeClass('active');           
         $(this).addClass('active');
-
+        
         $('.tab-pane').hide();
         $(t).fadeIn('slow');
     }
 });
 
-$(document).ready(function(){
+jQuery(document).ready(function(){
     var getActiveTab = getCookie('active-tab');
    // debugger;
     if(getActiveTab != '' && getActiveTab != undefined){
@@ -53,7 +53,7 @@ function eraseCookie(name) {
     document.cookie = name+'=; Max-Age=-99999999;';  
 }
 
-$(document).on('click', '.d-year', function(){
+jQuery(document).on('click', '.d-year', function(){
     if($(this).parents('ul.filter').hasClass('filter-inactive')){
         $(this).parents('ul.filter').removeClass('filter-inactive').addClass('filter-active');
     }
@@ -62,7 +62,7 @@ $(document).on('click', '.d-year', function(){
     }
 });
 
-$(document).on('click', '.current-year-month a', function(e){
+jQuery(document).on('click', '.current-year-month a', function(e){
     e.preventDefault();
 
     var current_year = $('.current-year-month .year-month').attr('data-year');
@@ -77,12 +77,27 @@ $(document).on('click', '.current-year-month a', function(e){
     }
 });
 
-$(document).on('click', '.prev-year i', function () {
+jQuery(document).on('click', '.prev-year i', function () {
     $(this).parents('.year-month-wrap').hide();
     $(this).parents('.year-month-wrap').prev().fadeIn('show');
 });
 
-$(document).on('click', '.next-year i', function () {
+jQuery(document).on('click', '.next-year i', function () {
     $(this).parents('.year-month-wrap').hide();
     $(this).parents('.year-month-wrap').next().fadeIn('show');
 });
+ if (typeof MauticSDKLoaded == 'undefined') {
+    var MauticSDKLoaded = true;
+    var head            = document.getElementsByTagName('head')[0];
+    var script          = document.createElement('script');
+    script.type         = 'text/javascript';
+    script.src          = 'http://34.73.98.235/mautic/mauticopensource/media/js/mautic-form.js';
+    script.onload       = function() {
+        MauticSDK.onLoad();
+    };
+    head.appendChild(script);
+    var MauticDomain = 'http://34.73.98.235/mautic/mauticopensource';
+    var MauticLang   = {
+        'submittingMessage': "Please wait..."
+    }
+}
