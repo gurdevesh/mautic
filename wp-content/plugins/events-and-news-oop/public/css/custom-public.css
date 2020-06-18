@@ -53,9 +53,10 @@
     display: none;
 }
 .events-date h4, .events-date h3 {
-    font-size: 16px;
+    font-size: 16px !important;
     padding: 0px;
     margin: 0px;
+    color: #979797;
 }
 
 section#primary {
@@ -70,7 +71,7 @@ section#primary {
 }
 
 .date-wrap span.year {
-    padding-top: 10px;
+    padding-top: 15px;
 }
 
 .date-wrap {
@@ -91,7 +92,7 @@ section#primary {
 }
 
 .event-title h3 {
-    font-size: 24px;
+    font-size: 24px !important;
     padding: 0;
     margin: 0;
 }
@@ -99,11 +100,12 @@ section#primary {
 .event-title h3 a {
     color: #000;
     text-decoration: none;
+    font-family: CircularTT-Bold !important;
 }
 
 .event-text {
     color: #979797;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .event-location {
@@ -150,7 +152,8 @@ ul {}
 }
 
 .collapsible-dates > ul > li {
-    font-size: 16px;
+    font-size: 18px;
+    color: #000;
 }
 
 .collapsible-dates > ul li a {
@@ -227,6 +230,7 @@ ul#myTab {}
 .tabs-section ul#myTab li a:hover, .tabs-section ul#myTab li a.active {
     color: #e55165 !important;
     border-color: #e55165 !important;
+    background: #fff;
 }
 
 .tab-content .tab-pane {
@@ -798,6 +802,26 @@ body.events-template-default, body.news-template-default{
     .custom-calender {
         display: block;
     }
+    .collapsible-dates{
+        display: none;
+    }
+    .tab-pane{
+        padding: 20px 0px;
+    }
+    .news-date-wrap .category, .news-date-wrap .time, .news-date-wrap .date {flex-basis: 100%;}
+
+    .news-date-wrap {
+        flex-wrap: wrap;
+    }
+    div#primary {
+        margin: 85px auto 0;
+    }
+    .breadcrumb{
+        color: #868786 !important;
+    }
+    .breadcrumb a{
+        color: #000 !important;
+    }
 }
 
 
@@ -823,12 +847,12 @@ ul.filter-active .d-month {
 .page-template-archive-events .mauticform_wrapper, .post-type-archive-events .mauticform_wrapper {
     padding: 0;
     margin: 0;
-    max-width: 590px;
-    flex-basis: 590px;
+    max-width: 560px;
+    flex-basis: 560px;
 }
 
 .page-template-archive-events .mautic-sub-form h4, .post-type-archive-events .mautic-sub-form h4 {
-    margin: 10px 15px 10px 0;
+    margin: 5px 15px 5px 0;
 }
 
 .mauticform-button-wrapper .mauticform-button-wrapper {
@@ -861,19 +885,22 @@ ul.filter-active .d-month {
     /* margin: 110px auto 0px auto; */
 }
 
-.page-template-archive-news .container, .post-type-archive-news .container {
-    padding: 120px 0px;
+.page-template-archive-news .container, .post-type-archive-news .container,
+.page-template-archive-events .container, .post-type-archive-events .container {
+    padding: 120px 20px;
 }
 
 .tabs-section ul#myTab li:before {
     display: none !important;
 }
 
-.page-template-archive-news .container *, .post-type-archive-news .container * {
+.page-template-archive-news .container *, .post-type-archive-news .container *,
+.page-template-archive-events .container *, .post-type-archive-events .container * {
     box-sizing: border-box;
 }
 
-.page-template-archive-news .container li:before, .post-type-archive-news .container li:before {
+.page-template-archive-news .container li:before, .post-type-archive-news .container li:before,
+.page-template-archive-events .container li:before, .post-type-archive-events .container li:before {
     display: none !important;
 }
 .news-listed-wrap:hover .news-category {
@@ -887,3 +914,7 @@ ul.filter-active .d-month {
     text-decoration: none;
 }
 
+
+.page-template-archive-events ul.filter.filter-active {
+    padding: 5px 0px;
+}
