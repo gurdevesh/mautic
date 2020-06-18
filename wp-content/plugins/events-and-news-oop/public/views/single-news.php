@@ -22,7 +22,7 @@ get_header();
                                 $event_date = get_field('date' );
                                                     
                                 $date = strtotime($event_date);
-                                echo date_format($date,"l, F jS Y g A (T)");
+                                echo date_format($date,"l, F jS Y");
 
                             ?>
                         </div>
