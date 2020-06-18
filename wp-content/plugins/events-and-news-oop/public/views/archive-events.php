@@ -160,8 +160,8 @@ get_header();
 			                        <br />
 			                        <!-- <strong>Event Date:</strong> -->
 			                        <?php
-										//$current_date = date('l F jS Y - g:i A');
-			                        $current_date = date('l, F jS Y g:i A T');
+									//$current_date = date('l, F jS Y g:i A T');
+									$current_date = date('F j, Y g:i a');
 			                        $new_date_format= date( 'j F Y', strtotime($event_date));
 			                        if ( strtotime($current_date) < strtotime($event_date) ) { ?>
 			                            <h4>Upcoming On</h4>
@@ -184,19 +184,11 @@ get_header();
 				    				<div class="event-title"> 
 					    				<h3> <a href="<?php the_permalink() ?>"><?php the_title() ?></a> </h3>
 					    			</div>
-					    			<div class="mobile-date">
-					    				<i class="far fa-calendar-minus"></i>
-					    				<span class="day"> <?php echo $day; ?></span>
-					    				<span class="month"> <?php echo $month; ?> </span>
-					    				<span class="year"> <?php echo $year; ?> </span>
-						    			
-					    			</div>
 					    			<div class="event-location"> 
 					    				<i class="fas fa-map-marker-alt"></i>
 					    				<?php
 					                    $location = get_field( 'location' );
 					                    if(!empty($location)){ ?>
-					                        <strong>Location:</strong>
 					                        <?php  echo get_field( 'location' );
 					                    } ?>
 					    			</div>

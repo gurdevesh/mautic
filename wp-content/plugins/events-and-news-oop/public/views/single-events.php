@@ -26,7 +26,10 @@ get_header();
                 <div class="news-date-wrap">
                     <div class="date">
                         <i class="far fa-calendar-alt"></i>
-                        <?php echo esc_html(  get_field('date' ) ); ?>
+                        <?php 
+                        $date = date_create(get_field('date' ));
+                        echo date_format($date,"l, F jS Y g A (T)");
+						?>
                     </div>
                     <div class="time">
                         <i class="far fa-clock"></i>
@@ -40,6 +43,7 @@ get_header();
                         <?php the_title() ?>
                     </h2>
                 </div>
+                <?php $bg = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' ); ?>
                 <div class="single-news-desc">
                     <img src="<?php echo $bg[0]; ?>" class="img-responsive" />
                     <?php the_content(); ?>

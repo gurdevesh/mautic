@@ -227,13 +227,13 @@ class Event_News_Public {
     function show_breadcrumbs()
     {
         // Set variables for later use
-        $home_link        = home_url('/');
-        $home_text        = __( 'Home' );
+        //$home_link        = home_url('/');
+        //$home_text        = __( 'Home' );
         $link_before      = '<span typeof="v:Breadcrumb">';
         $link_after       = '</span>';
         $link_attr        = ' rel="v:url" property="v:title"';
         $link             = $link_before . '<a' . $link_attr . ' href="%1$s">%2$s</a>' . $link_after;
-        $delimiter        = ' &raquo; ';              // Delimiter between crumbs
+        $delimiter        = ' / ';              // Delimiter between crumbs
         $before           = '<span class="current">'; // Tag before the current crumb
         $after            = '</span>';                // Tag after the current crumb
         $page_addon       = '';                       // Adds the page number if the query is paged
@@ -419,17 +419,14 @@ class Event_News_Public {
 
         $breadcrumb_output_link  = '';
         $breadcrumb_output_link .= '<div class="breadcrumb">';
-        if (    is_home()
-            || is_front_page()
-        ) {
-            // Do not show breadcrumbs on page one of home and frontpage
+        if (    is_home() || is_front_page()) {
             if ( is_paged() ) {
-                $breadcrumb_output_link .= '<a href="' . $home_link . '">' . $home_text . '</a>';
-                $breadcrumb_output_link .= $page_addon;
+                // $breadcrumb_output_link .= '<a href="' . $home_link . '">' . $home_text . '</a>';
+                // $breadcrumb_output_link .= $page_addon;
             }
         } else {
-            $breadcrumb_output_link .= '<a href="' . $home_link . '" rel="v:url" property="v:title">' . $home_text . '</a>';
-            $breadcrumb_output_link .= $delimiter;
+            //$breadcrumb_output_link .= '<a href="' . $home_link . '" rel="v:url" property="v:title">' . $home_text . '</a>';
+            //$breadcrumb_output_link .= $delimiter;
             $breadcrumb_output_link .= $breadcrumb_trail;
             $breadcrumb_output_link .= $page_addon;
         }
@@ -477,7 +474,7 @@ class Event_News_Public {
 
             $filter_html .= '<ul class="filter '.$active.'">'
                     .'<li>'
-                        .'<label class="d-year" data-year-name="'.$year.'">'.$year.'</label>'
+                        .'<label class="d-year" data-year-name="'.$year.'"><strong>'.$year.'</strong></label>'
                         .'<ul class="d-month">';
                         foreach($month as $each) {
                             $url = get_month_link( $year, $each ).$suffix;
@@ -511,13 +508,13 @@ class Event_News_Public {
         $results = $wpdb->get_results( $query );
 
         $year_array = array();
-        $first = 0;
+//        $first = 0;
         foreach ($results as $each){
-            if($first == 0){
-                $first_year = $each->year;
-            }
+//            if($first == 0){
+//                $first_year = $each->year;
+//            }
             $year_array[$each->year][] = $each->month;
-            $first = 1;
+//            $first = 1;
         }
 
         $suffix = '?post_type='.$type;
@@ -555,60 +552,56 @@ class Event_News_Public {
                                 .$current_month_text
                                 .'</label>'
 				            .'<i class="fas fa-chevron-down"></i></a>'
-				        .'</div>';
+				        .'</div>'; //.current-year-month ends
 
 
 
-        $filter_html .= '<div class="calender-wrap">'
-            .'<div class="year-wrap">'
-            .'<div class="current-year">'
-            .$first_year
-            .'</div>'
-            .'<div class="year-next-prev">'
-            .'<span disabled class="prev-year"> <i class="fas fa-chevron-up"></i> </span>'
-            .'<span class="next-year"> <i class="fas fa-chevron-down"></i> </span>'
-            .'</div>'
-            .'</div>';
+        $filter_html .= '<div class="calender-wrap">';
 
         $i = 1; $count_years = count($year_array);
-        foreach ($year_array as $year => $month){
-
-            $position = $display = $current = '';
+        foreach ($year_array as $this_year => $this_month){
+            $prev = $next = ''; // disable prev and next button on first and last div respectively
             if($i == 1){
-                $position = 'first';
+                $prev = 'disabled';
             }
             else if($i == $count_years){
-                $position = 'last';
+                $next = 'disabled';
             }
 
-            if($first_year != $year){
-                $display = 'hidden';
-            }
-            else{
-                $current = 'current';
-            }
+            $filter_html .= '<div class="year-month-wrap" data-year="'.$this_year.'">'
+            .'<div class="year-wrap">'
+            .'<div class="current-year">'
+            .$this_year
+            .'</div>'
+            .'<div class="year-next-prev">'
+            .'<span '.$prev.' class="prev-year"> <i class="fas fa-chevron-up"></i> </span>'
+            .'<span '.$next.' class="next-year"> <i class="fas fa-chevron-down"></i> </span>'
+            .'</div>'
+            .'</div>'; // .year-wrap ends
 
-            $filter_html .= '<div class="months-wrap hidden '.$position.'" data-year="'.$year.'">';
+            $filter_html .= '<div class="months-wrap">';
             foreach ($month_name_array as $key => $each_month){
                 $disabled = $month_url = $active = '';
-                if(!in_array(($key+1), $month)){
+                if(!in_array(($key+1), $this_month)){ // if posts does not exists for this month
                     $disabled = 'disabled';
                 }
                 else{
-                    $month_url = get_month_link( $year, ($key+1) ).$suffix;
+                    $month_url = get_month_link( $this_year, ($key+1) ).$suffix;
                 }
-                if($month_str == ($key+1)){
+
+                if($month_str == ($key+1) && $year_str == $this_year){ // to highlight the current month page loaded
                     $active = 'active';
                 }
+
                 $filter_html .= '<div class="month '.$disabled.' '.$active.'"><a href="'.$month_url.'"> '.$each_month.' </a></div>';
             }
-            $filter_html .= '</div>';
-            $i++;
+            $filter_html .= '</div>'; // .months-wrap ends
+            $filter_html .= '</div>'; // .year-month-wrap ends
 
+            $i++;
         }
 
-        $filter_html .= '</div>';
-
+        $filter_html .= '</div>'; // .calender-wrap ends
         return $filter_html;
     }
 
