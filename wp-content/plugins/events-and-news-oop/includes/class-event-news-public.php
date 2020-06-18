@@ -84,7 +84,7 @@ class Event_News_Public {
                 'public' => true,
                 'has_archive' => true,
                 'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
-                'rewrite' => array('slug' => 'events', 'with_front' => false), // custom slug
+                'rewrite' => array('slug' => 'si-events', 'with_front' => false), // custom slug
                 'taxonomies' => array('')
             )
         );
@@ -142,13 +142,13 @@ class Event_News_Public {
 
     /**
      * Register new urls for the functionality
-     * Callback function on filter 'template_include'
+     * Callback function on action 'init'
      */
     function add_rewrite_rules(){
 
         // Load the wordpress page with respective slug instead of loading custom post type
         add_rewrite_rule('news/?$','index.php?pagename=news', 'top');
-        add_rewrite_rule('events/?$','index.php?pagename=events', 'top');
+        add_rewrite_rule('si-events/?$','index.php?pagename=si-events', 'top');
 
         // Customize the filter url with year month for custom post type News
         add_rewrite_rule(
@@ -159,7 +159,7 @@ class Event_News_Public {
 
         // Customize the filter url with year month for custom post type Event
         add_rewrite_rule(
-            'events/([0-9]{4})/([0-9]{1,2})/?$',
+            'si-events/([0-9]{4})/([0-9]{1,2})/?$',
             'index.php?post_type=events&year=$matches[1]&monthnum=$matches[2]',
             'top'
         );

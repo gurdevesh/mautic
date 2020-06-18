@@ -277,7 +277,13 @@ class Shortcode
 
             foreach($month as $each) {
 
-                $url = get_site_url().'/'.$type.'/'.$year.'/'.$each.'/';
+                
+                if($type == 'events'){
+                    $url = get_site_url().'/si-'.$type.'/'.$year.'/'.$each.'/';
+                } else {
+                    $url = get_site_url().'/'.$type.'/'.$year.'/'.$each.'/';
+                }
+                
                 $current_month = '';
                 if($year == $year_str && $each == $month_str){
                     $current_month = 'active';
