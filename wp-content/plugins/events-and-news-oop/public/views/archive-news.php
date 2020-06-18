@@ -10,7 +10,7 @@
  */
 
 
-get_header();
+include get_template_directory().'/fullwidth-header.php';
 
 $meta_query = array();
 if(is_month()){

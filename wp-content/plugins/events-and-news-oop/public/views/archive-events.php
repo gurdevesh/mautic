@@ -2,14 +2,14 @@
 /**
  * Template Name: Events Archive
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ * @link              https://snotrainfotech.com/
+ * @since             1.0.0
  *
- * @package WordPress
- * @subpackage Twenty_Nineteen
- * @since 1.0.0
+ * @package           EventNews
+ * @subpackage        EventNews/Views
  */
 
-get_header();
+include get_template_directory().'/fullwidth-header.php';
 ?>
 	<section id="primary" class="content-area">
     	<div class="container">
