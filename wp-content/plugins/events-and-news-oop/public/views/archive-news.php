@@ -117,7 +117,7 @@ if(!empty($page)){
                                             </div>
                                         </div>
                                         <div class="col-md-6"> 
-                                            <h4> Media Contact </h4>
+                                            <h4> Media </h4>
                                             <div class="media-ul">
                                                 <ul>
                                                     <?php 
@@ -279,7 +279,10 @@ if(!empty($page)){
                                                 
                                                 <div class="news-date"> 
                                                     <?php
-                                                    $event_date = the_field('date' );
+                                                    $event_date = get_field('date' );
+                                                    echo "<pre>";
+                                                    print_r($event_date);
+                                                    echo "</pre>";
                                                     $date = strtotime($event_date);
                                                     $day =  date('j', $date);
                                                     $month =  date('M', $date);
