@@ -520,6 +520,7 @@ body.events-template-default, body.news-template-default{
 
 .mauticform_wrapper {
     margin: 0;
+    position: relative;
 }
 
 .mauticform-row {
@@ -528,11 +529,13 @@ body.events-template-default, body.news-template-default{
 }
 
 .mauticform-row .mauticform-input {font-size: 16px;flex-basis: 100%;padding: 10px;max-width: 100%;}
-
+.mauticform-innerform{
+    position: relative;
+}
 .mauticform-row .mauticform-button {
     font-size: 16px;
     padding: 0;
-    flex-basis: 200px;
+    flex-basis: 230px;
     padding: 10px 20px;
     background: #e55165;
     text-decoration: none;
@@ -779,10 +782,15 @@ ul.filter-active .d-month {
     display: none;
 }
 
-.page-template-archive-events .mauticform_wrapper {padding: 0;margin: 0;max-width: 500px;flex-basis: 500px;}
+.page-template-archive-events .mauticform_wrapper {
+    padding: 0;
+    margin: 0;
+    max-width: 590px;
+    flex-basis: 590px;
+}
 
 .page-template-archive-events .mautic-sub-form h4 {
-    margin: 20px 25px;
+    margin: 10px  25px;
 }
 
 .mauticform-button-wrapper .mauticform-button-wrapper {
@@ -796,4 +804,14 @@ ul.filter-active .d-month {
 
 .months-wrap.hidden{
     display: none;
+}
+.mauticform-message, .mauticform-error, .mauticform-errormsg {
+    position: absolute;
+    top: 100%;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+} 
+.overview-tab .mauticform-message,.overview-tab .mauticform-error,.overview-tab  .mauticform-errormsg { 
+    margin: 0px 0 0 0;
 }

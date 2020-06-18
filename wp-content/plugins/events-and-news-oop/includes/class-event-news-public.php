@@ -315,7 +315,7 @@ class Event_News_Public {
 
         global $post;
         if(!empty($post->post_excerpt)){
-            return '<p>'.$post->post_excerpt.' <a href="'. get_permalink($post->ID) . '">Read More</a></p>';
+            return '<p>'.$post->post_excerpt.' <a href="'. get_permalink($post->ID) . '">Read More <i class="fas fa-chevron-right"></i></a></p>';
         }
         return $excerpt;
 
@@ -331,7 +331,7 @@ class Event_News_Public {
     function modify_read_more($more){
 
         global $post;
-        return ' <a href="'. get_permalink($post->ID) . '">' . 'Read More' . '</a>';
+        return ' <a href="'. get_permalink($post->ID) . '">' . 'Read More <i class="fas fa-chevron-right"></i>' . '</a>';
 
     }
 }
