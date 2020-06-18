@@ -47,31 +47,7 @@ get_header();
 										get alerts 
 									</span> 
 								</h4>
-								<style type="text/css" scoped>
-									.mauticform_wrapper { max-width: 600px; margin: 10px auto; }
-									.mauticform-innerform {}
-									.mauticform-post-success {}
-									.mauticform-name { font-weight: bold; font-size: 1.5em; margin-bottom: 3px; }
-									.mauticform-description { margin-top: 2px; margin-bottom: 10px; }
-									.mauticform-error { margin-bottom: 10px; color: red; }
-									.mauticform-message { margin-bottom: 10px;color: green; }
-									.mauticform-row { display: block; margin-bottom: 20px; }
-									.mauticform-label { font-size: 1.1em; display: block; font-weight: bold; margin-bottom: 5px; }
-									.mauticform-row.mauticform-required .mauticform-label:after { color: #e32; content: " *"; display: inline; }
-									.mauticform-helpmessage { display: block; font-size: 0.9em; margin-bottom: 3px; }
-									.mauticform-errormsg { display: block; color: red; margin-top: 2px; }
-									.mauticform-selectbox, .mauticform-input, .mauticform-textarea { width: 100%; padding: 0.5em 0.5em; border: 1px solid #CCC; background: #fff; box-shadow: 0px 0px 0px #fff inset; border-radius: 4px; box-sizing: border-box; }
-									.mauticform-checkboxgrp-row {}
-									.mauticform-checkboxgrp-label { font-weight: normal; }
-									.mauticform-checkboxgrp-checkbox {}
-									.mauticform-radiogrp-row {}
-									.mauticform-radiogrp-label { font-weight: normal; }
-									.mauticform-radiogrp-radio {}
-									.mauticform-button-wrapper .mauticform-button.btn-default, .mauticform-pagebreak-wrapper .mauticform-pagebreak.btn-default { color: #5d6c7c;background-color: #ffffff;border-color: #dddddd;}
-									.mauticform-button-wrapper .mauticform-button, .mauticform-pagebreak-wrapper .mauticform-pagebreak { display: inline-block;margin-bottom: 0;font-weight: 600;text-align: center;vertical-align: middle;cursor: pointer;background-image: none;border: 1px solid transparent;white-space: nowrap;padding: 6px 12px;font-size: 13px;line-height: 1.3856;border-radius: 3px;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
-									.mauticform-button-wrapper .mauticform-button.btn-default[disabled], .mauticform-pagebreak-wrapper .mauticform-pagebreak.btn-default[disabled] { background-color: #ffffff; border-color: #dddddd; opacity: 0.75; cursor: not-allowed; }
-									.mauticform-pagebreak-wrapper .mauticform-button-wrapper {  display: inline; }
-								</style>
+								
 								<div id="mauticform_wrapper_subscription" class="mauticform_wrapper">
 									<form autocomplete="false" role="form" method="post" action="http://34.73.98.235/mautic/mauticopensource/form/submit?formId=1" id="mauticform_subscription" data-mautic-form="subscription" enctype="multipart/form-data">
 										<div class="mauticform-error" id="mauticform_subscription_error"></div>
@@ -105,34 +81,6 @@ get_header();
     				<div class="custom-calender">
                         <?php echo do_shortcode("[si_archive_filter_mobile type='events']"); ?>
 
-                        <!--				        <div class="current-year-month">-->
-<!--				            <a href="#"> <i class="far fa-calendar-minus"></i> April 2020  <i class="fas fa-chevron-down"></i></a>-->
-<!--				        </div>-->
-<!--				        <div class="calender-wrap">-->
-<!--				            <div class="year-wrap">-->
-<!--				                <div class="current-year">-->
-<!--				                    2020-->
-<!--				                </div>-->
-<!--				                <div class="year-next-prev">-->
-<!--				                    <a href="" class="prev-year"> <i class="fas fa-chevron-up"></i> </a>-->
-<!--				                    <a href="" class="next-year"> <i class="fas fa-chevron-down"></i> </a>-->
-<!--				                </div>-->
-<!--				            </div>-->
-<!--				            <div class="months-wrap">-->
-<!--				                <div class="month"> <a href="#"> JAN </a> </div>-->
-<!--				                <div class="month"> <a href="#"> FEB </a> </div>-->
-<!--				                <div class="month"> <a href="#"> MAR </a> </div>-->
-<!--				                <div class="month"> <a href="#"> APR </a> </div>-->
-<!--				                <div class="month"> <a href="#"> MAY </a> </div>-->
-<!--				                <div class="month active"> <a href="#"> JUN </a> </div>-->
-<!--				                <div class="month"> <a href="#"> JUL </a> </div>-->
-<!--				                <div class="month"> <a href="#"> AUG </a> </div>-->
-<!--				                <div class="month"> <a href="#"> SEP </a> </div>-->
-<!--				                <div class="month"> <a href="#"> OCT </a> </div>-->
-<!--				                <div class="month"> <a href="#"> NOV </a> </div>-->
-<!--				                <div class="month"> <a href="#"> DEC </a> </div>-->
-<!--				            </div>-->
-<!--				        </div>-->
 				    </div>
     				<?php
 		            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
