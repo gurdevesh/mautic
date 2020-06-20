@@ -26,18 +26,13 @@ include get_template_directory().'/fullwidth-header.php';
                     <?php echo do_shortcode("[si_breadcrumbs]"); ?>
                 </div>
                 <div class="news-date-wrap">
+                    
                     <div class="date">
                         <i class="far fa-calendar-alt"></i>
-                        <?php
-                            $event_date = get_field('date' );
-                            $date = strtotime($event_date);
-                            $month =  date('F', $date);
-                            $dname = date('l', $date);
-                            $day =  date('j', $date);
-                            $year =  date('Y', $date);
-
-                            echo $dname.', '.$month.' '.$day.' '.$year ;
-                        ?>
+                        <?php 
+                        $date = date_create(get_field('date' ));
+                        echo date_format($date,"l, F jS Y");
+						?>
                     </div>
                     
                     <div class="category">
