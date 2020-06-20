@@ -275,15 +275,13 @@ class Shortcode
                 .'<label class="d-year" data-year-name="'.$year.'"><strong>'.$year.'</strong></label>'
                 .'<ul class="d-month">';
 
-            foreach($month as $each) {
+            if($type == 'events'){
+                $url = get_site_url().'/si-'.$type.'/'.$year.'/'.$each.'/';
+            } else {
+                $url = get_site_url().'/'.$type.'/'.$year.'/'.$each.'/';
+            }
 
-                
-                if($type == 'events'){
-                    $url = get_site_url().'/si-'.$type.'/'.$year.'/'.$each.'/';
-                } else {
-                    $url = get_site_url().'/'.$type.'/'.$year.'/'.$each.'/';
-                }
-                
+            foreach($month as $each) {
                 $current_month = '';
                 if($year == $year_str && $each == $month_str){
                     $current_month = 'active';
@@ -322,17 +320,9 @@ class Shortcode
         $results = $wpdb->get_results( $query );
 
         $year_array = array();
-//        $first = 0;
         foreach ($results as $each){
-//            if($first == 0){
-//                $first_year = $each->year;
-//            }
             $year_array[$each->year][] = $each->month;
-//            $first = 1;
         }
-
-//        $prefix = 'news'.$type;
-        $filter_html = ''; $i= 0;
 
         $month_name_array = array(
             'JAN',
@@ -372,6 +362,12 @@ class Shortcode
 
         $filter_html .= '<div class="calender-wrap">';
 
+        if($type == 'events'){
+            $url = get_site_url().'/si-'.$type.'/'.$year.'/'.$each.'/';
+        } else {
+            $url = get_site_url().'/'.$type.'/'.$year.'/'.$each.'/';
+        }
+
         $i = 1; $count_years = count($year_array);
         foreach ($year_array as $this_year => $this_month){
             $prev = $next = ''; // disable prev and next button on first and last div respectively
@@ -400,7 +396,7 @@ class Shortcode
                     $disabled = 'disabled';
                 }
                 else{
-                    $month_url = get_site_url().'/'.$type.'/'.$this_year.'/'.($key+1).'/';
+                    $month_url = get_site_url().'/'.$url.'/'.$this_year.'/'.($key+1).'/';
                 }
 
                 if($month_str == ($key+1) && $year_str == $this_year){ // to highlight the current month page loaded
