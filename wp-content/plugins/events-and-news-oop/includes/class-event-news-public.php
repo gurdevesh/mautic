@@ -348,4 +348,9 @@ class Event_News_Public {
         return ' <a href="'. get_permalink($post->ID) . '">' . 'Read More <i class="fas fa-chevron-right"></i>' . '</a>';
 
     }
+
+    function add_allowed_origins( $origins ) {
+        $origins[] = 'http://34.73.98.235/';
+        return $origins;
+    }
 }

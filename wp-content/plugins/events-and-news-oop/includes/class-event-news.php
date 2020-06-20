@@ -65,6 +65,8 @@ class Event_News {
         add_filter('the_excerpt', array( $plugin_public, 'excerpt_with_read_more') );
         add_filter('excerpt_more', array( $plugin_public, 'modify_read_more') );
 
+        add_filter( 'allowed_http_origins', array( $plugin_public,'add_allowed_origins') );
+
     }
 
     /**
