@@ -525,6 +525,9 @@ body.news-template-default {
     text-decoration: none;
     margin-right: 5px;
 }
+.news-date-wrap a{
+    color: #000;
+}
 
 .single-news-title h2 {
     color: #000;
@@ -588,6 +591,9 @@ body.events-template-default, body.news-template-default{
     padding: 10px 20px;
     background: #e55165;
     text-decoration: none;
+    text-transform: capitalize;
+    font-family: CircularTT-Book ,sans-serif;
+    font-weight: normal;
 }
 .current-year-month {
     /* border: 2px solid #e55165; */
@@ -657,7 +663,19 @@ body.events-template-default, body.news-template-default{
     width: 100%;
     justify-content: space-between;
 }
-
+.year-next-prev {
+    display: flex;
+    width: 60px;
+    justify-content: flex-end;
+    align-items: center;
+    color: #858585;
+}
+.year-next-prev span{
+    margin-left: 10px;
+}
+.year-next-prev span[disabled]{
+    opacity: 0.5;
+}
 .year-next-prev a {
     color: #848484;
     margin: 0px 8px;
@@ -676,11 +694,12 @@ body.events-template-default, body.news-template-default{
     text-align: center;
     position: relative;
     min-height: 40px;
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
     font-size: 14px;
     font-weight: bold;
+    background: #fff
 }
 
 .months-wrap .month a {color: #858585;font-weight: normal;text-decoration: none;position: relative;z-index: 9;}
@@ -762,7 +781,9 @@ ul.filter-active .d-month {
 }
 
 .page-template-archive-news .container, .post-type-archive-news .container,
-.page-template-archive-events .container, .post-type-archive-events .container {
+.page-template-archive-events .container, .post-type-archive-events .container,
+.archive .container
+{
     padding: 120px 20px;
 }
 
@@ -771,12 +792,14 @@ ul.filter-active .d-month {
 }
 
 .page-template-archive-news .container *, .post-type-archive-news .container *,
-.page-template-archive-events .container *, .post-type-archive-events .container * {
+.page-template-archive-events .container *, .post-type-archive-events .container *,
+.archive .container *{
     box-sizing: border-box;
 }
 
 .page-template-archive-news .container li:before, .post-type-archive-news .container li:before,
-.page-template-archive-events .container li:before, .post-type-archive-events .container li:before {
+.page-template-archive-events .container li:before, .post-type-archive-events .container li:before,
+.archive .container li:before {
     display: none !important;
 }
 .news-listed-wrap:hover .news-category {
@@ -795,7 +818,22 @@ ul.filter-active .d-month {
     padding: 5px 0px;
 }
 
+.si-pagging {
+    display: flex;
+    justify-content: center;
+}
 
+.si-pagging span, .si-pagging a {
+    padding: 0px 10px;
+    color: #848484;
+}
+
+.si-pagging span {
+    color: #000;
+}
+.mobile-events-date{
+    display: none;
+}
 @media (max-width: 768px){
     .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
         max-width: 100%;
@@ -941,5 +979,26 @@ ul.filter-active .d-month {
     }
     .single-news-title h2{
         font-size: 1.5rem !important;
+    }
+    .event-location, .mobile-events-date {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .event-location i, .mobile-events-date i {
+        font-size: 20px;
+        line-height: 24px;
+        color: #e55165;
+        width: 22px;
+        margin-right: 5px;
+    }
+
+    .mobile-events-date {
+        margin-bottom: 12px;
+        margin-top: 10px;
+    }
+    .page-template-archive-events .mautic-sub-form{
+        display: none;
     }
 }

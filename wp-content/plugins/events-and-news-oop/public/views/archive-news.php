@@ -43,23 +43,23 @@ $loop = new WP_Query($args);
 $page_id = '';
 $page = get_page_by_path( "news", OBJECT, array( 'page' ) );
 if(!empty($page)){
-    $page_id = $page->ID;
+    $page_id = $page->ID;   
 }
-
+$siteurl = get_site_url();
 ?>
 <section id="primary" class="content-area">
     <div class="container">
         <div class="tabs-section">
             <ul class="nav nav-tabs tabs" id="myTab" role="tablist">
               <li class="nav-item">
-                <a class="nav-link <?php echo $overview ?>" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
+                <a class="nav-link <?php echo $overview ?> active" id="overview-tab" data-toggle="tab" href="#overview" role="tab" aria-controls="overview" aria-selected="true">Overview</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link <?php echo $news ?>" id="news-tab" data-toggle="tab" href="#news" role="tab" aria-controls="news" aria-selected="false">News</a>
               </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade <?php echo $overview ?> overview-tab" id="overview"  role="tabpanel" aria-labelledby="overview-tab">
+                <div class="tab-pane fade <?php echo $overview ?> overview-tab" style="display: block;" id="overview"  role="tabpanel" aria-labelledby="overview-tab">
                     <div class="media-wrap">
                         <div class="row">
                             <div class="col-md-8">
@@ -87,7 +87,7 @@ if(!empty($page)){
                                                 <?php $media_contact = get_field( "media_contact", $page_id );
                                                     if( $media_contact ) { ?>
                                                  <li>
-                                                    <i class="fas fa-phone-alt"></i>
+                                                    <i class="fas fa-phone"></i>
                                                     <a href="tel:<?php echo $media_contact; ?> "> <?php echo $media_contact; ?> </a>
                                                 </li>
                                                 <?php } ?>
@@ -110,7 +110,7 @@ if(!empty($page)){
                                                 <?php $logo = get_field( "logo", $page_id );
                                                     if( $logo ) { ?>
                                                 <li>
-                                                    <i class="fas fa-bars"></i>
+                                                    <i class="fas"><img src="<?php echo $siteurl; ?>/wp-content/uploads/2018/09/futurebridge-favicon.png" /></i>
                                                     <a href="<?php echo $logo; ?>" download> FutureBridge Logo </a>
                                                     <a class="download-link" href="<?php echo $logo; ?>" download>
                                                         <i class="fas fa-download"></i> </a>
@@ -185,7 +185,7 @@ if(!empty($page)){
 
                     </div>
                 </div>
-              <div class="tab-pane fade <?php echo $news ?>" id="news" role="tabpanel" aria-labelledby="news-tab">
+                <div class="tab-pane fade <?php echo $news ?>" id="news" role="tabpanel" aria-labelledby="news-tab">
                   <div class="row">
                         <div class="col-md-2">
                             <div class="collapsible-dates">
@@ -216,7 +216,6 @@ if(!empty($page)){
                                             <div class="news-date">
                                                 <?php
                                                 $event_date = get_field('date' );
-//
                                                 $day =  date("j", strtotime($event_date));
                                                 $month = date("M", strtotime($event_date));
                                                 $year =  date("Y", strtotime($event_date));
@@ -252,9 +251,13 @@ if(!empty($page)){
                                             ?>
                                             </div>
                                             <div class="pdf-download-link">
-                                            <?php $pdflink = get_field('pdf_download');
+                                            <?php 
+                                                $pdflink = get_field('pdf_download');
+                                                
+                                                $pdflinks = $pdflink['url'];
+                                               
                                                 if($pdflink != ''){ ?>
-                                                <a href="<?php the_field('pdf_download');?>" download>
+                                                <a href="<?php echo $pdflinks;?>" download>
                                                     <i class="fas fa-download"></i>
                                                 </a>
                                                <?php } ?>
@@ -263,7 +266,9 @@ if(!empty($page)){
                                     </div>
                                 </div>
                                 <?php  endwhile; // End of the loop. ?>
-                                <?php echo paginate_links(array('total'=> $loop->max_num_pages)) ?>
+                                <div class="si-pagging">
+                                    <?php echo paginate_links(array('total'=> $loop->max_num_pages)) ?>
+                                </div>
                             </div>
                         </div>
                   </div>
