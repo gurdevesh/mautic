@@ -61,6 +61,7 @@ class Event_News_Public {
                 'has_archive' => true,
                 'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
                 'rewrite' => array('slug' => 'news'), // custom slug
+                'menu_icon' => 'dashicons-align-right',
                 'taxonomies' => array('')
             )
         );
@@ -85,6 +86,7 @@ class Event_News_Public {
                 'has_archive' => true,
                 'supports' => array('title', 'editor', 'excerpt', 'thumbnail'),
                 'rewrite' => array('slug' => 'si-events', 'with_front' => false), // custom slug
+                'menu_icon' => 'dashicons-calendar-alt',
                 'taxonomies' => array('')
             )
         );
@@ -346,12 +348,6 @@ class Event_News_Public {
 
         global $post;
         return ' <a href="'. get_permalink($post->ID) . '">' . 'Read More <i class="fas fa-chevron-right"></i>' . '</a>';
-
-    }
-
-    function add_allowed_origins( $origins ) {
-        $origins[] = 'http://34.73.98.235/';
-        return $origins;
     }
 
     function just_add_cors_http_header($headers){
