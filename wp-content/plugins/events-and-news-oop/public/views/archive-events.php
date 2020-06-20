@@ -128,6 +128,26 @@ include get_template_directory().'/fullwidth-header.php';
                                 <div class="event-title">
                                     <h3> <a href="<?php the_permalink() ?>"><?php the_title() ?></a> </h3>
                                 </div>
+                                <div class="mobile-events-date">
+                                	<i class="far fa-calendar-alt"></i>
+		                            <?php
+		                            $event_date = get_field('date' );
+		                            $date = strtotime($event_date);
+		                            $day =  date('j', $date);
+		                            $month =  date('M', $date);
+		                            $year =  date('Y', $date);
+
+		                            if(!empty($event_date)): ?>
+		                               
+		                                <?php
+		                                $current_date = date('F j, Y g:i a');
+		                                $new_date_format= date( 'j F Y', strtotime($event_date));
+		                                ?>
+		                                <span class="date-wrap-cal">
+		                                     <?php echo $day; ?>  <?php echo $month; ?> <?php echo $year; ?> 
+		                                </span>
+		                            <?php endif; ?>
+		                        </div>
                                 <div class="event-location">
                                     <i class="fas fa-map-marker-alt"></i>
                                     <?php
@@ -146,7 +166,9 @@ include get_template_directory().'/fullwidth-header.php';
                     </div>
                 </article>
                 <?php endwhile; // End of the loop. ?>
-                <?php echo paginate_links(array('total'=> $loop->max_num_pages, 'prev_text' => '« Prev')); ?>
+                <div class="si-pagging">
+	                <?php echo paginate_links(array('total'=> $loop->max_num_pages, 'prev_text' => '« Prev')); ?>
+	            </div>
                 <?php wp_reset_postdata(); ?>
             </div>
         </div>
