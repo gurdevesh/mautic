@@ -353,4 +353,15 @@ class Event_News_Public {
         $origins[] = 'http://34.73.98.235/';
         return $origins;
     }
+
+    function just_add_cors_http_header($headers){
+
+        $headers['Access-Control-Allow-Origin'] = '*';
+        $headers['Access-Control-Allow-Methods'] = 'POST, GET, DELETE, PUT, PATCH, OPTIONS';
+        $headers['Access-Control-Allow-Headers'] = 'token, Content-Type';
+        $headers['Access-Control-Max-Age'] = '1728000';
+
+        return $headers;
+
+    }
 }

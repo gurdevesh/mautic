@@ -66,7 +66,8 @@ class Event_News {
         add_filter('excerpt_more', array( $plugin_public, 'modify_read_more') );
 
         add_filter( 'allowed_http_origins', array( $plugin_public,'add_allowed_origins') );
-
+        
+        add_action('wp_headers', array( $plugin_public,'just_add_cors_http_header') );
     }
 
     /**
