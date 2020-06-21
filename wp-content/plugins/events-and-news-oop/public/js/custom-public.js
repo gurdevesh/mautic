@@ -87,11 +87,12 @@ jQuery(document).on('click', '.next-year i', function () {
     $(this).parents('.year-month-wrap').next().fadeIn('show');
 });
  if (typeof MauticSDKLoaded == 'undefined') {
+
     var MauticSDKLoaded = true;
     var head            = document.getElementsByTagName('head')[0];
     var script          = document.createElement('script');
     script.type         = 'text/javascript';
-    script.src          = 'http://34.73.98.235/mautic/mauticopensource/media/js/mautic-form.js';
+    script.src          = 'https://devfbnew.wpengine.com/wp-content/plugins/events-and-news-oop/public/js/mautic.js';
     script.onload       = function() {
         MauticSDK.onLoad();
     };
