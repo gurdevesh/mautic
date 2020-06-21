@@ -1,6 +1,6 @@
 <?php
 /**
- * Single New template
+ * The template for displaying all single posts of post type News
  *
  * @link              https://snotrainfotech.com/
  * @since             1.0.0
@@ -10,13 +10,11 @@
  */
 
 include get_template_directory().'/fullwidth-header.php';
-
 ?>
 
 <div id="primary" class="content-area">
     <main id="main" class="site-main">
         <div class="container">
-
             <?php
             // Start the Loop.
             while (have_posts()) : the_post(); ?>
@@ -26,7 +24,6 @@ include get_template_directory().'/fullwidth-header.php';
                     <?php echo do_shortcode("[si_breadcrumbs]"); ?>
                 </div>
                 <div class="news-date-wrap">
-                    
                     <div class="date">
                         <i class="far fa-calendar-alt"></i>
                         <?php 
@@ -34,7 +31,6 @@ include get_template_directory().'/fullwidth-header.php';
                         echo date_format($date,"l, F jS Y");
 						?>
                     </div>
-                    
                     <div class="category">
                         <i class="fas fa-sitemap"></i>
                         <?php
@@ -43,8 +39,7 @@ include get_template_directory().'/fullwidth-header.php';
                                 $term = $terms[0]; ?>
                                 <a href="<?php echo get_category_link($term->term_id) ?>" ><?php echo $term->name; ?></a>
                             <?php }
-                            $bg = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' );
-                        ?>
+                            $bg = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ), 'full' ); ?>
                     </div>
                 </div>
                 <div class="single-news-title">
@@ -57,9 +52,7 @@ include get_template_directory().'/fullwidth-header.php';
                     <?php the_content(); ?>
                 </div>
             </div>
-            <?php
-            endwhile; ?>
-
+            <?php endwhile; ?>
         </div>
     </main><!-- #main -->
 </div><!-- #primary -->

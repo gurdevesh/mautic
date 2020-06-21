@@ -349,15 +349,5 @@ class Event_News_Public {
         global $post;
         return ' <a href="'. get_permalink($post->ID) . '">' . 'Read More <i class="fas fa-chevron-right"></i>' . '</a>';
     }
-
-    function just_add_cors_http_header($headers){
-
-        $headers['Access-Control-Allow-Origin'] = '*';
-        $headers['Access-Control-Allow-Methods'] = 'POST, GET, DELETE, PUT, PATCH, OPTIONS';
-        $headers['Access-Control-Allow-Headers'] = 'token, Content-Type';
-        $headers['Access-Control-Max-Age'] = '1728000';
-
-        return $headers;
-
-    }
+    
 }

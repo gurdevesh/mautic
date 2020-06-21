@@ -1,12 +1,12 @@
 <?php
 /**
- * The template for displaying all single posts
+ * The template for displaying all single posts of post type Events
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ * @link              https://snotrainfotech.com/
+ * @since             1.0.0
  *
- * @package WordPress
- * @subpackage Twenty_Nineteen
- * @since Twenty Nineteen 1.0
+ * @package           EventNews
+ * @subpackage        EventNews/public/views
  */
 
 include get_template_directory().'/fullwidth-header.php';
@@ -15,7 +15,6 @@ include get_template_directory().'/fullwidth-header.php';
     <main id="main" class="site-main">
         <div class="container">
             <?php
-
             // Start the Loop.
             while (have_posts()) :
                 the_post(); ?>
@@ -33,10 +32,8 @@ include get_template_directory().'/fullwidth-header.php';
                     </div>
                     <div class="time">
                         <i class="far fa-clock"></i>
-                        <?php// echo esc_html( human_time_diff( get_the_time('U'), current_time('timestamp') ) ) . ' ago'; ?>
                         <?php echo esc_html( get_field('duration' )); ?>
                     </div>
-                   
                 </div>
                 <div class="single-news-title">
                     <h2> 
@@ -49,9 +46,7 @@ include get_template_directory().'/fullwidth-header.php';
                     <?php the_content(); ?>
                 </div>
             </div>
-            <?php
-            endwhile; ?>
-        
+            <?php endwhile; ?>
         </div>  
     </main><!-- #main -->
 </div><!-- #primary -->

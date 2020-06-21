@@ -2,13 +2,12 @@
 /**
  * Template Name: News Archive
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ * @link              https://snotrainfotech.com/
+ * @since             1.0.0
  *
- * @package WordPress
- * @subpackage Twenty_Nineteen
- * @since 1.0.0
+ * @package           EventNews
+ * @subpackage        EventNews/public/views
  */
-
 
 include get_template_directory().'/fullwidth-header.php';
 
@@ -38,7 +37,6 @@ $args = array (
     'order'				=> 'DESC'
 );
 $loop = new WP_Query($args);
-
 
 $page_id = '';
 $page = get_page_by_path( "news", OBJECT, array( 'page' ) );
@@ -110,7 +108,9 @@ $siteurl = get_site_url();
                                                 <?php $logo = get_field( "logo", $page_id );
                                                     if( $logo ) { ?>
                                                 <li>
-                                                    <i class="fas"><img src="<?php echo $siteurl; ?>/wp-content/uploads/2018/09/futurebridge-favicon.png" /></i>
+                                                    <i class="fas">
+                                                        <img src="<?php echo $siteurl.'/wp-content/uploads/2018/09/futurebridge-favicon.png'; ?>" />
+                                                    </i>
                                                     <a href="<?php echo $logo; ?>" download> FutureBridge Logo </a>
                                                     <a class="download-link" href="<?php echo $logo; ?>" download>
                                                         <i class="fas fa-download"></i> </a>
@@ -140,49 +140,18 @@ $siteurl = get_site_url();
                                                 </span>
                                                 press releases
                                             </h4>
-
-                                            <div id="mauticform_wrapper_subscription" class="mauticform_wrapper">
-                                                <form autocomplete="false" role="form" method="post" action="http://34.73.98.235/mautic/mauticopensource/form/submit?formId=1" id="mauticform_subscription" data-mautic-form="subscription" enctype="multipart/form-data">
-                                                    <div class="mauticform-error" id="mauticform_subscription_error"></div>
-                                                    <div class="mauticform-message" id="mauticform_subscription_message"></div>
-                                                    <div class="mauticform-innerform">
-
-
-                                                      <div class="mauticform-page-wrapper mauticform-page-1" data-mautic-form-page="1">
-
-                                                        <div id="mauticform_subscription_email" data-validate="email" data-validation-type="email" class="mauticform-row mauticform-email mauticform-field-1 mauticform-required">
-                                                            <input id="mauticform_input_subscription_email" name="mauticform[email]" value="" placeholder="Enter your e-mail ID" class="mauticform-input" type="email">
-                                                            <button type="submit" name="mauticform[submit]" id="mauticform_input_subscription_submit" value="" class="mauticform-button btn btn-default">Subscribe</button>
-                                                            <span class="mauticform-errormsg" style="display: none;">Please enter valid Email ID</span>
-                                                        </div>
-
-                                                        <div id="mauticform_subscription_submit" class="mauticform-row mauticform-button-wrapper mauticform-field-2">
-
-                                                        </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <input type="hidden" name="mauticform[formId]" id="mauticform_subscription_id" value="1">
-                                                    <input type="hidden" name="mauticform[return]" id="mauticform_subscription_return" value="">
-                                                    <input type="hidden" name="mauticform[formName]" id="mauticform_subscription_name" value="subscription">
-
-                                                    </form>
-                                            </div>
+                                            <?php include "mautic-form.php"; ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-
 
                             <div class="col-md-4">
                                 <div class="twitter-wrap">
                                     <a class="twitter-timeline" href="https://twitter.com/TheFutureBridge?ref_src=twsrc%5Etfw">Tweets by TheFutureBridge</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
                 <div class="tab-pane fade <?php echo $news ?>" id="news" role="tabpanel" aria-labelledby="news-tab">
@@ -198,7 +167,6 @@ $siteurl = get_site_url();
                         <div class="col-md-10">
                             <div class="news-listing">
                                  <?php
-
                                     /* Start the Loop */
                                     while ( $loop->have_posts() ) :
                                     $loop->the_post(); ?>
@@ -225,7 +193,6 @@ $siteurl = get_site_url();
                                                     <span class="day"> <?php echo $day; ?></span>
                                                     <span class="month"> <?php echo $month; ?> </span>
                                                     <span class="year"> <?php echo $year; ?> </span>
-
                                                 <?php } ?>
                                             </div>
                                             <?php
@@ -253,9 +220,7 @@ $siteurl = get_site_url();
                                             <div class="pdf-download-link">
                                             <?php 
                                                 $pdflink = get_field('pdf_download');
-                                                
                                                 $pdflinks = $pdflink['url'];
-                                               
                                                 if($pdflink != ''){ ?>
                                                 <a href="<?php echo $pdflinks;?>" download>
                                                     <i class="fas fa-download"></i>

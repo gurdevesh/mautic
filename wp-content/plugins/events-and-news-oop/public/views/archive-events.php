@@ -6,31 +6,39 @@
  * @since             1.0.0
  *
  * @package           EventNews
- * @subpackage        EventNews/Views
+ * @subpackage        EventNews/public/views
  */
 
 include get_template_directory().'/fullwidth-header.php';
+
+$meta_query = array();
+if(is_month()){
+    $month_str = get_query_var('custom_month');
+    $year_str = get_query_var('custom_year');
+    if( !empty($month_str) ){
+        $month = new DateTime($year_str.'/'.$month_str.'/01');
+        $meta_query = array(
+            'key' => 'date',
+            'value' => array($month->format('Y-m-d').' 00:00:00',$month->format('Y-m-t'). '23:59:59'),
+            'compare' => 'BETWEEN',
+        );
+    }
+}
+
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+$args = array (
+    'post_type' => 'events',
+    'paged'         => $paged,
+    'meta_query'    => array($meta_query),
+    'meta_key'			=> 'date',
+    'orderby'			=> 'meta_value',
+    'order'				=> 'DESC'
+);
 ?>
 <section id="primary" class="content-area">
     <div class="container">
         <h2>Events</h2>
-
-        <?php
-        $meta_query = array();
-        if(is_month()){
-            $month_str = get_query_var('custom_month');
-            $year_str = get_query_var('custom_year');
-            if( !empty($month_str) ){
-                $month = new DateTime($year_str.'/'.$month_str.'/01');
-                $meta_query = array(
-                    'key' => 'date',
-                    'value' => array($month->format('Y-m-d').' 00:00:00',$month->format('Y-m-t'). '23:59:59'),
-                    'compare' => 'BETWEEN',
-                );
-            }
-        }
-        ?>
-
         <div class="row">
             <div class="col-md-2">
                 <div class="collapsible-dates">
@@ -47,48 +55,15 @@ include get_template_directory().'/fullwidth-header.php';
                                     get alerts
                                 </span>
                             </h4>
-
-                            <div id="mauticform_wrapper_subscription" class="mauticform_wrapper">
-                                <form autocomplete="false" role="form" method="post" action="http://34.73.98.235/mautic/mauticopensource/form/submit?formId=1" id="mauticform_subscription" data-mautic-form="subscription" enctype="multipart/form-data">
-                                    <div class="mauticform-error" id="mauticform_subscription_error"></div>
-                                    <div class="mauticform-message" id="mauticform_subscription_message"></div>
-                                    <div class="mauticform-innerform">
-
-                                        <div class="mauticform-page-wrapper mauticform-page-1" data-mautic-form-page="1">
-
-                                        <div id="mauticform_subscription_email" data-validate="email" data-validation-type="email" class="mauticform-row mauticform-email mauticform-field-1 mauticform-required">
-                                            <input id="mauticform_input_subscription_email" name="mauticform[email]" value="" placeholder="Enter your e-mail ID" class="mauticform-input" type="email">
-                                            <button type="submit" name="mauticform[submit]" id="mauticform_input_subscription_submit" value="" class="mauticform-button btn btn-default">Subscribe</button>
-                                            <span class="mauticform-errormsg" style="display: none;">Please enter valid Email ID</span>
-                                        </div>
-
-                                        <div id="mauticform_subscription_submit" class="mauticform-row mauticform-button-wrapper mauticform-field-2">
-                                        </div>
-                                        </div>
-                                    </div>
-
-                                    <input type="hidden" name="mauticform[formId]" id="mauticform_subscription_id" value="1">
-                                    <input type="hidden" name="mauticform[return]" id="mauticform_subscription_return" value="">
-                                    <input type="hidden" name="mauticform[formName]" id="mauticform_subscription_name" value="subscription">
-                                    </form>
-                            </div>
+                            <?php include "mautic-form.php"; ?>
                         </div>
                     </div>
                 </div>
                 <div class="custom-calender">
                     <?php echo do_shortcode("[si_archive_filter_mobile type='events']"); ?>
                 </div>
-                <?php
-                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-                $args = array (
-                    'post_type' => 'events',
-                    'paged'         => $paged,
-                    'meta_query'    => array($meta_query),
-                    'meta_key'			=> 'date',
-                    'orderby'			=> 'meta_value',
-                    'order'				=> 'DESC'
-                );
+                <?php
                 $loop = new WP_Query($args);
                 /* Start the Loop */
                 while ( $loop->have_posts() ) :
@@ -131,15 +106,7 @@ include get_template_directory().'/fullwidth-header.php';
                                 <div class="mobile-events-date">
                                 	<i class="far fa-calendar-alt"></i>
 		                            <?php
-		                            $event_date = get_field('date' );
-		                            $date = strtotime($event_date);
-		                            $day =  date('j', $date);
-		                            $month =  date('M', $date);
-		                            $year =  date('Y', $date);
-
-		                            if(!empty($event_date)): ?>
-		                               
-		                                <?php
+		                            if(!empty($event_date)):
 		                                $current_date = date('F j, Y g:i a');
 		                                $new_date_format= date( 'j F Y', strtotime($event_date));
 		                                ?>
